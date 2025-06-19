@@ -1,103 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ali Goodarzi</title>
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background: #fff;
-      color: #000;
-      margin: 0;
-      padding: 40px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
-    }
-    .section {
-      margin-bottom: 40px;
-    }
-    .bold {
-      font-weight: bold;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    a {
-      color: #0056b3;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Goodarzi - AI Researcher & Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            margin-top: -50px;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Research Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .project-meta {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li:before {
+            content: "▶";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Ali Goodarzi</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <h1>Ali Goodarzi</h1>
-  <p><em>Artificial Intelligence | Embedded Systems | Human-Centered Computing</em></p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image">
+                    🧠
+                </div>
+                <h1>Ali Goodarzi</h1>
+                <p class="hero-subtitle">AI Researcher • Machine Learning Engineer • Critical Thinking Enthusiast</p>
+                <p class="hero-description">
+                    Bridging theoretical frameworks with cutting-edge AI research to create real-world problem-solving tools. 
+                    Specializing in Large Language Models, argumentation systems, and human-centric AI applications that transform 
+                    complex decision-making processes into intelligent, scalable solutions.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#research" class="btn btn-primary">View Research</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>Contact</h2>
-    <ul>
-      <li><span class="bold">Email:</span> <a href="mailto:aligoodarzi.ai@gmail.com">aligoodarzi.ai@gmail.com</a></li>
-      <li><span class="bold">LinkedIn:</span> <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></li>
-      <li><span class="bold">GitHub:</span> <a href="https://github.com/AliGoodarzi-Ai" target="_blank">AliGoodarzi-Ai</a></li>
-      <li><span class="bold">ResearchGate:</span> <a href="#">Your ResearchGate link</a></li>
-    </ul>
-  </div>
+    <main>
+        <section id="about" class="container">
+            <h2 class="section-title">About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8; color: #4a5568;">
+                <p>I hold a Master's in Computer Science and Engineering from the University of Oulu, with a distinguished academic record and expertise spanning AI, embedded systems, and human-computer interaction. My research focuses on integrating theoretical frameworks—such as structured argumentation, critical thinking models, and cognitive scaffolding—with Large Language Models to create intelligent B2B and Decision Support Systems.</p>
+                <br>
+                <p>With over two years of hands-on experience in machine learning and a strong background in VHDL and system design, I specialize in implementing deep learning models on GPUs, particularly within Machine Learning as a Service (MLaaS) contexts. My work bridges the gap between cutting-edge AI research and applied machine learning, translating theory into robust, scalable tools.</p>
+                <br>
+                <p>When I'm not immersed in research, you'll find me at the gym, hiking through nature, or listening to thought-provoking podcasts that fuel my passion for critical thinking and mathematical reasoning.</p>
+            </div>
+        </section>
 
-  <div class="section">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>University of Oulu</strong> – MSc Computer Science and Engineering (HCI, Vision, LLMs)</li>
-      <li><strong>IAU University Iran</strong> – BSc Electrical Engineering – Electronics</li>
-    </ul>
-  </div>
+        <section id="research" class="container">
+            <h2 class="section-title">Research Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🧠</div>
+                        <div>
+                            <h3 class="project-title">Mind Elevator: AI-Powered Argumentation System</h3>
+                            <p class="project-meta">Master's Thesis • 2024-2025</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Revolutionary web-based system integrating Toulmin argumentation analysis with real-time semantic search algorithms. 
+                        Features Multi-Stage Semantic Search Pipeline (MSSP) utilizing vector embeddings and GPT-4 API integration to enhance 
+                        critical thinking and argumentative writing capabilities in educational settings.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Semantic Search</span>
+                        <span class="tag">Educational AI</span>
+                        <span class="tag">Critical Thinking</span>
+                        <span class="tag">GPT-4</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">5/5</div>
+                            <div class="stat-label">Thesis Grade</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Outstanding</div>
+                            <div class="stat-label">Distinction</div>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Thesis Worker</strong> – Mind Elevator Development, AI Argumentation Tool</li>
-      <li><strong>Research Intern</strong> – UBICOMP, University of Oulu (Jun–Sep 2024)</li>
-      <li><strong>Electronic Trainee</strong> – Geopyörä Oy (Oct 2024–May 2025)</li>
-      <li><strong>AI and IoT Specialist</strong> – Alborz Construction Engineering (2020–2023)</li>
-      <li><strong>Hardware Design / PLC Trainee</strong> – Iran Vocational Training (2018–2020)</li>
-    </ul>
-  </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🏭</div>
+                        <div>
+                            <h3 class="project-title">Industrial AI: Affordance Theory Implementation</h3>
+                            <p class="project-meta">Research Project • 2024</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Advanced computer vision system applying Gibson's affordance theory to industrial object detection and context-aware 
+                        instruction generation. Demonstrates human-centric AI principles for collaborative fieldwork operations with real-time 
+                        safety monitoring and expert-level guidance generation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Affordance Theory</span>
+                        <span class="tag">Industrial AI</span>
+                        <span class="tag">Safety Systems</span>
+                        <span class="tag">Human-Centric AI</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">11+</div>
+                            <div class="stat-label">Objects Detected</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Real-time</div>
+                            <div class="stat-label">Processing</div>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2>Summary</h2>
-    <p>
-      I hold a Master's in Computer Engineering specializing in AI, blending software, hardware, and machine learning. My research spans adaptive AI systems, LLMs, embedded systems, and educational technologies. I’ve worked on predictive modeling, IoT systems, PCB optimization, and semantic search tools for argumentation. I build intelligent solutions that bridge theory and real-world application across disciplines.
-    </p>
-  </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🧬</div>
+                        <div>
+                            <h3 class="project-title">Transfer Learning for Medical Image Classification</h3>
+                            <p class="project-meta">Deep Learning Research • January 2025</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Comprehensive study exploring transfer learning techniques for diabetic retinopathy detection using ResNet, EfficientNet, 
+                        DenseNet, and VGG models. Implemented attention mechanisms, two-step fine-tuning, and five ensemble methods with 
+                        the APTOS 2019 dataset for optimized model generalization.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Transfer Learning</span>
+                        <span class="tag">Medical AI</span>
+                        <span class="tag">Ensemble Methods</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Healthcare</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Reads</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Models</div>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Machine Learning & Deep Learning (LLMs, NLP, CV)</li>
-      <li>Python, C++, Java</li>
-      <li>Embedded Systems, PCB Design (Altium), ESP32, LoRa, MQTT</li>
-      <li>Data Analysis, Regression, Forecasting, Time-Series</li>
-      <li>LangChain, Prompt Engineering, Experimental Design</li>
-    </ul>
-  </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">❤️</div>
+                        <div>
+                            <h3 class="project-title">ECG-Based Emotion Classification</h3>
+                            <p class="project-meta">Machine Learning Research • October 2024</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Innovative research investigating the brain-heart connection through ECG analysis for emotion detection. 
+                        Developed machine learning models using MIT-BIH dataset to classify emotional states based on heart rhythm patterns, 
+                        bridging cardiac health monitoring with emotional state recognition.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">ECG Analysis</span>
+                        <span class="tag">Emotion Recognition</span>
+                        <span class="tag">Biomedical AI</span>
+                        <span class="tag">Signal Processing</span>
+                        <span class="tag">MIT-BIH Dataset</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">180</div>
+                            <div class="stat-label">Reads</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3.0</div>
+                            <div class="stat-label">Interest Score</div>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="section">
-    <h2>Languages</h2>
-    <ul>
-      <li>English – C2</li>
-      <li>Finnish – A1</li>
-      <li>Persian – Native</li>
-    </ul>
-  </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📊</div>
+                        <div>
+                            <h3 class="project-title">Academic Performance Forecasting</h3>
+                            <p class="project-meta">Data Mining Research • April 2024</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Comprehensive data mining study analyzing student performance factors in mathematics and Portuguese language courses. 
+                        Developed predictive models revealing the significant impact of family support and study time on academic success, 
+                        providing insights for educational strategy development.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Data Mining</span>
+                        <span class="tag">Educational Analytics</span>
+                        <span class="tag">Predictive Modeling</span>
+                        <span class="tag">Statistical Analysis</span>
+                        <span class="tag">Academic Success</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">214</div>
+                            <div class="stat-label">Reads</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Citation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="skills" class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🤖 Machine Learning & AI</h3>
+                    <ul class="skill-list">
+                        <li>Large Language Models (LLMs)</li>
+                        <li>BERT, GPT-4, LangChain</li>
+                        <li>PyTorch, TensorFlow</li>
+                        <li>Vector Embeddings & Semantic Search</li>
+                        <li>Prompt Engineering</li>
+                        <li>Deep Learning (CNNs, DNNs)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>💻 Programming & Development</h3>
+                    <ul class="skill-list">
+                        <li>Python, C++, JavaScript</li>
+                        <li>React.js, MATLAB, SQL</li>
+                        <li>VHDL & System Design</li>
+                        <li>Git, Docker, RESTful APIs</li>
+                        <li>MLaaS Implementation</li>
+                        <li>GPU Computing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🔬 Research & Analysis</h3>
+                    <ul class="skill-list">
+                        <li>Experimental Design</li>
+                        <li>Statistical Analysis</li>
+                        <li>Time-series Forecasting</li>
+                        <li>Data Mining & Visualization</li>
+                        <li>Cross-disciplinary Research</li>
+                        <li>Critical Thinking Frameworks</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>⚡ Hardware & Embedded Systems</h3>
+                    <ul class="skill-list">
+                        <li>PCB Design (Altium Designer)</li>
+                        <li>ESP32, Arduino, IoT Development</li>
+                        <li>PLC Programming (Siemens)</li>
+                        <li>MQTT, LoRaWAN Protocols</li>
+                        <li>Strain Gauge Calibration</li>
+                        <li>Industrial Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:Ali.Goodarzi@student.oulu.fi">Ali.Goodarzi@student.oulu.fi</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <a href="http://www.linkedin.com/in/aligoodarzi" target="_blank">linkedin.com/in/aligoodarzi</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/AliGoodarzi-Ai" target="_blank">AliGoodarzi-Ai</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🎓</div>
+                    <h3>ResearchGate</h3>
+                    <a href="http://www.researchgate.net/profile/Ali-Goodarzi-7" target="_blank">ResearchGate Profile</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Website</h3>
+                    <a href="https://aligoodarzi-ai.github.io/" target="_blank">aligoodarzi-ai.github.io</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ali Goodarzi. Bridging AI Research with Real-World Impact.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate project cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
