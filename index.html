@@ -238,6 +238,7 @@
             position: relative;
             z-index: 10;
             box-shadow: 0 -20px 50px rgba(0,0,0,0.1);
+            margin-bottom: 0; /* Ensure main extends to footer */
         }
 
         section {
@@ -489,7 +490,8 @@
 
         /* Contact Section */
         #contact {
-            margin-bottom: 50px; /* Add margin to create space between cards and footer */
+            margin-bottom: 0; /* Remove the margin that was creating the gradient gap */
+            padding-bottom: 80px; /* Add padding instead of margin to keep spacing */
         }
 
         .contact-grid {
