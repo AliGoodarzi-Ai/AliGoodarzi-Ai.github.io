@@ -489,9 +489,9 @@
 
         /* Contact Section */
         #contact {
-            margin-bottom: 120px; /* Increased from 80px to 120px */
+            margin-bottom: 0; /* Remove bottom margin */
         }
-        
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -501,13 +501,13 @@
         }
 
         .contact-card {
+            position: relative;
             background: #1a365d;
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+            border-radius: 20px 20px 0 0; /* Flat bottom */
             box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+            overflow: hidden; /* For link covering entire card */
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+            height: 100%;
         }
 
         .contact-card:hover {
@@ -515,24 +515,41 @@
             box-shadow: 0 20px 40px rgba(26, 54, 93, 0.4);
         }
 
+        .contact-card a {
+            display: block;
+            padding: 2rem;
+            color: white;
+            text-decoration: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .contact-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
         .contact-icon {
             font-size: 2rem;
-            margin-bottom: 1rem;
         }
 
         .contact-card h3 {
-            margin-bottom: 0.5rem;
+            margin: 0;
             font-weight: 600;
         }
 
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        .contact-card a:hover {
-            opacity: 0.8;
+        .contact-username {
+            font-size: 1.1rem;
         }
 
         /* Footer */
@@ -986,19 +1003,37 @@
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="contact-icon"><i class="ri-linkedin-fill"></i></div>
-                    <h3>LinkedIn</h3>
-                    <a href="http://www.linkedin.com/in/aligoodarzi" target="_blank">linkedin.com/in/aligoodarzi</a>
+                    <a href="http://www.linkedin.com/in/aligoodarzi" target="_blank">
+                        <div class="contact-inner">
+                            <div class="contact-title-row">
+                                <div class="contact-icon"><i class="ri-linkedin-fill"></i></div>
+                                <h3>LinkedIn</h3>
+                            </div>
+                            <div class="contact-username">AliGoodarzi</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon"><i class="ri-github-fill"></i></div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/AliGoodarzi-Ai" target="_blank">AliGoodarzi-Ai</a>
+                    <a href="https://github.com/AliGoodarzi-Ai" target="_blank">
+                        <div class="contact-inner">
+                            <div class="contact-title-row">
+                                <div class="contact-icon"><i class="ri-github-fill"></i></div>
+                                <h3>GitHub</h3>
+                            </div>
+                            <div class="contact-username">AliGoodarzi</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon"><i class="ri-graduation-cap-fill"></i></div>
-                    <h3>ResearchGate</h3>
-                    <a href="http://www.researchgate.net/profile/Ali-Goodarzi-7" target="_blank">ResearchGate Profile</a>
+                    <a href="http://www.researchgate.net/profile/Ali-Goodarzi-7" target="_blank">
+                        <div class="contact-inner">
+                            <div class="contact-title-row">
+                                <div class="contact-icon"><i class="ri-graduation-cap-fill"></i></div>
+                                <h3>ResearchGate</h3>
+                            </div>
+                            <div class="contact-username">AliGoodarzi</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
