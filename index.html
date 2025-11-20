@@ -106,6 +106,12 @@
             color: #1a365d;
         }
         
+        .nav-links a:focus-visible {
+            outline: 2px solid #1a365d;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+        
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -237,11 +243,16 @@
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid #4a5568;
+            outline-offset: 2px;
         }
 
         .btn-primary {
@@ -258,6 +269,7 @@
         
         .btn-primary:active {
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.25);
         }
 
         .btn-secondary {
@@ -271,10 +283,12 @@
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-4px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
         }
         
         .btn-secondary:active {
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* Main Content */
@@ -289,7 +303,11 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 90px 0;
+        }
+        
+        section:first-of-type {
+            padding-top: 60px;
         }
 
         .section-title {
@@ -340,6 +358,11 @@
         .project-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card:focus-within {
+            box-shadow: 0 8px 25px rgba(26, 54, 93, 0.15);
+            transform: translateY(-4px);
         }
         
         .project-card:before {
@@ -458,6 +481,11 @@
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
+        
+        .skill-category:focus-within {
+            box-shadow: 0 12px 35px rgba(26, 54, 93, 0.15);
+            transform: translateY(-4px);
+        }
 
         .skill-category h3 {
             color: #1a365d;
@@ -517,6 +545,11 @@
         .certification-card:hover {
             transform: translateY(-8px) scale(1.01);
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .certification-card:focus-within {
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.12);
+            transform: translateY(-3px);
         }
         
         .certification-issuer {
@@ -611,6 +644,11 @@
             width: 100%;
             position: relative;
             z-index: 3;
+            outline: none;
+        }
+        
+        .contact-card a:focus-visible {
+            box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
         }
 
         .contact-inner {
@@ -708,6 +746,28 @@
         .scroll-to-top:active {
             transform: translateY(-4px) scale(0.95);
         }
+        
+        .scroll-to-top:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 3px;
+        }
+
+        /* Smooth scroll behavior for entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -804,6 +864,11 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%);
         }
+        
+        .skill-card-compact:focus-within {
+            box-shadow: 0 12px 35px rgba(26, 54, 93, 0.15);
+            transform: translateY(-4px);
+        }
 
         .skill-icon-large {
             width: 70px;
@@ -865,6 +930,11 @@
             box-shadow: 0 20px 50px rgba(26, 54, 93, 0.18);
             border-color: rgba(26, 54, 93, 0.3);
             background: linear-gradient(135deg, #fff 0%, #f5fbff 100%);
+        }
+        
+        .research-focus-card:focus-within {
+            box-shadow: 0 12px 35px rgba(26, 54, 93, 0.15);
+            border-color: rgba(26, 54, 93, 0.4);
         }
 
         .research-icon {
@@ -930,7 +1000,7 @@
                     human reasoning capabilities while maintaining user agency in complex problem-solving processes.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#research" class="btn btn-primary">View Research</a>
+                    <a href="#research-focus" class="btn btn-primary">View Research</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
@@ -1570,10 +1640,10 @@
             ...document.querySelectorAll('.contact-card')
         ];
         
-        animatedElements.forEach(element => {
+        animatedElements.forEach((element, index) => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
-            element.style.transition = 'all 0.6s ease';
+            element.style.transition = `all 0.6s ease ${index * 0.08}s`;
             observer.observe(element);
         });
         
