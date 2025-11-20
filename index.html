@@ -128,6 +128,9 @@
         
         .nav-links a.active:after {
             width: 100%;
+            background: linear-gradient(90deg, #1a365d, #4a5568);
+            height: 3px;
+            box-shadow: 0 2px 8px rgba(26, 54, 93, 0.2);
         }
 
         /* Hero Section */
@@ -211,24 +214,34 @@
         .btn-primary {
             background: #1a365d;
             color: white;
-            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+            box-shadow: 0 8px 25px rgba(26, 54, 93, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(26, 54, 93, 0.35);
             background: #2c4a7c;
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(-2px);
         }
 
         /* Main Content */
@@ -256,18 +269,20 @@
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            letter-spacing: -0.5px;
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 4px;
-            background: #1a365d;
-            bottom: -10px;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, #1a365d, #4a5568, #1a365d);
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(26, 54, 93, 0.1);
         }
 
         /* Research Projects */
@@ -282,16 +297,16 @@
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             border: 1px solid rgba(44, 62, 80, 0.1);
             position: relative;
             overflow: hidden;
         }
 
         .project-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
         }
         
         .project-card:before {
@@ -401,14 +416,14 @@
             background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-left: 4px solid #1a365d;
         }
         
         .skill-category:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .skill-category h3 {
@@ -461,14 +476,14 @@
             background: linear-gradient(135deg, #f1f5f9 0%, #d1d5db 100%);
             border-radius: 15px;
             padding: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-left: 4px solid #1a365d;
         }
         
         .certification-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
         }
         
         .certification-issuer {
@@ -514,8 +529,8 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(26, 54, 93, 0.4);
         }
 
         .contact-card a {
@@ -577,19 +592,25 @@
             justify-content: center;
             font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             z-index: 999;
+            pointer-events: none;
         }
         
         .scroll-to-top.visible {
             opacity: 1;
+            pointer-events: all;
         }
         
         .scroll-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-4px) scale(0.95);
         }
 
         /* Responsive */
@@ -660,6 +681,15 @@
                 padding: 1.5rem;
             }
         }
+        .phd-blurb {
+            max-width: 800px;
+            margin: 1rem auto 0;
+            text-align: center;
+            color: #4a5568;
+            font-size: 1.05rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -686,7 +716,9 @@
                 <h1>Ali Goodarzi</h1>
                 <p class="hero-subtitle">AI Researcher • Machine Learning Engineer • Generative AI</p>
                 <p class="hero-description">
-                    AI researcher developing interactive systems that enhance human cognitive abilities. I build applications combining large language models with cognitive science frameworks to support critical thinking, argumentation, and decision-making. My work focuses on measurable improvements in human-AI collaboration through experimental research and system design.
+                    Applying established theoretical frameworks to design human-AI interaction systems that enhance cognitive abilities and decision-making. 
+                    Specializing in Large Language Models, interactive argumentation systems, and human-centric AI applications that augment 
+                    human reasoning capabilities while maintaining user agency in complex problem-solving processes.
                 </p>
                 <div class="cta-buttons">
                     <a href="#research" class="btn btn-primary">View Research</a>
@@ -711,12 +743,11 @@
                         <li><b>Data & Pipeline Engineering:</b> Data flow design, multi-stage retrieval pipelines, vector embeddings, and scalable API integration.</li>
                         <li><b>System Architecture:</b> Theory-driven AI system design, experimental methodology development, and integrating cognitive enhancement frameworks (argumentation analysis, critical thinking scaffolding, metacognitive support) into measurable applications.</li>
                         <li><b>Human-Centric & Industrial AI:</b> Context-aware guidance, safety monitoring, and decision support systems for collaborative and industrial environments.</li>
-                        <li><b>Signal Processing & Embedded Systems:</b> Physiological signal analysis (ECG, sensor data), time-series forecasting, IoT sensor integration, embedded systems development (ESP32, Arduino, STM32), PCB design, industrial automation, building automation systems, MQTT protocols, LoRaWAN, PLC programming.</li>
-                </ul>
                     </ul>
-                </p>
-                <br>
-                <p>
+                    </ul>
+                    </p>
+                    <br>
+                    <p>
                     <b>Project highlights:</b> I have developed Mind Elevator, an interactive argumentation system that enhances critical thinking through structured human-AI collaboration, demonstrating significant improvements in reasoning skills compared to direct LLM usage. My research combines user study methodologies with AI system development to create tools that augment rather than replace human cognitive capabilities.
                 </p>
         <!-- 
@@ -732,6 +763,7 @@
                     </ul>
                 </div>
             </div>
+            <p class="phd-blurb">I study how conversational robots and AI-driven companions can be responsibly integrated into healthcare workflows to support dignity, social engagement, and staff capacity.<br>I focus on user-centered evaluation and measurable wellbeing outcomes to guide responsible, scalable deployments in long-term care.</p>
         </section>
         -->
             </div>
@@ -782,8 +814,8 @@
                             <div class="stat-label">Thesis Grade</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number"></div>
-                            <div class="stat-label"></div>
+                            <div class="stat-number">Published</div>
+                            <div class="stat-label">Status</div>
                         </div>
                     </div>
                 </div>
@@ -799,7 +831,7 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        An optimized computer vision system applying Gibson's affordance theory to industrial object detection and context-aware 
+                        Advanced computer vision system applying Gibson's affordance theory to industrial object detection and context-aware 
                         instruction generation. Demonstrates human-centric AI principles for collaborative fieldwork operations with real-time 
                         safety monitoring and expert-level guidance generation.
                     </p>
@@ -847,11 +879,11 @@
                     <div class="project-stats">
                         <div class="stat">
                             <div class="stat-number">5</div>
-                            <div class="stat-label">Ensemble Methods</div>
+                            <div class="stat-label">Reads</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">4</div>
-                            <div class="stat-label">Model Types</div>
+                            <div class="stat-label">Models</div>
                         </div>
                     </div>
                 </div>
@@ -876,19 +908,20 @@
                         <span class="tag">Emotion Recognition</span>
                         <span class="tag">Biomedical AI</span>
                         <span class="tag">Signal Processing</span>
-                        <span class="tag">MIT-BIH Dataset</spanReads
+                        <span class="tag">MIT-BIH Dataset</span>
                     </div>
                     <div class="project-stats">
                         <div class="stat">
-                            <div class="stat-number">MIT-BIH</div>
-                            <div class="stat-label">Dataset</div>
+                            <div class="stat-number">180</div>
+                            <div class="stat-label">Reads</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">ML</div>
-                            <div class="stat-label">Classification</div>
+                            <div class="stat-number">3.0</div>
+                            <div class="stat-label">Interest Score</div>
                         </div>
                     </div>
                 </div>
+
                 
                 <div class="project-card">
                     <div class="project-header">
@@ -957,7 +990,72 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="ri-book-open-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">Systematic Review: AI for Early Alzheimer's Detection</h3>
+                                <p class="project-meta">Literature Review • 2025</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive systematic review of machine learning and deep learning approaches for early Alzheimer's disease detection across imaging, biosignal, and multimodal datasets. Published in <i>Journal of Advanced Pharmacy Education and Research</i>; identifies clinical opportunities, methodological best-practices, and future directions for responsible, scalable AI deployment in clinical settings.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Alzheimer's</span>
+                            <span class="tag">Medical AI</span>
+                            <span class="tag">Early Detection</span>
+                            <span class="tag">Literature Review</span>
+                            <span class="tag">Clinical Benchmarks</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">Studies Reviewed</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">Review</div>
+                                <div class="stat-label">Status</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="ri-network-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="project-title">Graph Neural Networks for Financial Anomaly Detection</h3>
+                                <p class="project-meta">Data Science Research • 2025</p>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Development of GNN architectures for transaction- and entity-graph modelling to detect anomalies and fraud in financial datasets, with attention to temporal dynamics, interpretability, and robust benchmarking against classical baselines.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Graph Neural Networks</span>
+                            <span class="tag">Financial AI</span>
+                            <span class="tag">Anomaly Detection</span>
+                            <span class="tag">Explainable AI</span>
+                            <span class="tag">Temporal Graphs</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-number">Preprint</div>
+                                <div class="stat-label">Status</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">Benchmarked</div>
+                                <div class="stat-label">Against Baselines</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
         </section>
         
         <section id="skills" class="container">
@@ -1126,7 +1224,7 @@
     <div class="scroll-to-top">↑</div>
 
     <script>
-        // Smooth scrolling for navigation links
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1140,7 +1238,7 @@
             });
         });
 
-        // Add scroll effect to header
+        
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const scrollToTop = document.querySelector('.scroll-to-top');
@@ -1156,7 +1254,7 @@
             }
         });
 
-        // Scroll to top button functionality
+        
         document.querySelector('.scroll-to-top').addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -1164,7 +1262,7 @@
             });
         });
 
-        // Animate elements on scroll
+        
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1179,7 +1277,7 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
+        
         const animatedElements = [
             ...document.querySelectorAll('.project-card'),
             ...document.querySelectorAll('.skill-category'),
