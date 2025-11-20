@@ -561,9 +561,45 @@
             height: 100%;
         }
 
+        .contact-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
+        }
+
+        .contact-card:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: all 0.6s ease;
+            z-index: 2;
+        }
+
         .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(26, 54, 93, 0.4);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(26, 54, 93, 0.5);
+        }
+
+        .contact-card:hover:before {
+            opacity: 1;
+        }
+
+        .contact-card:hover:after {
+            top: 50%;
+            right: 50%;
+            opacity: 1;
         }
 
         .contact-card a {
@@ -573,6 +609,8 @@
             text-decoration: none;
             height: 100%;
             width: 100%;
+            position: relative;
+            z-index: 3;
         }
 
         .contact-inner {
@@ -580,6 +618,11 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-inner {
+            transform: scale(1.08);
         }
 
         .contact-title-row {
@@ -588,15 +631,35 @@
             justify-content: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-title-row {
+            transform: translateY(-5px);
         }
 
         .contact-icon {
             font-size: 2rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-block;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
         }
 
         .contact-card h3 {
             margin: 0;
             font-weight: 600;
+            font-size: 1.3rem;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-card:hover h3 {
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .contact-username {
@@ -1011,6 +1074,41 @@
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
+                            <i class="ri-robot-2-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="project-title">Therapeutic Companion: Conversational AI Agent</h3>
+                            <p class="project-meta">Hackathon Project • Scale Hack AI 2024</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Advanced conversational AI agent combining speech-to-text recognition, LLM-powered dialogue generation, and text-to-speech synthesis. 
+                        Designed for mental health support and non-clinical companionship with older adults. Features natural turn-taking, context-aware responses, 
+                        and persistent persona learning to enable genuine, human-like conversations across extended interactions.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Conversational AI</span>
+                        <span class="tag">Voice Processing</span>
+                        <span class="tag">LLMs</span>
+                        <span class="tag">Mental Health</span>
+                        <span class="tag">Social Robotics</span>
+                        <span class="tag">Turn-Taking</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <div class="stat-number">34</div>
+                            <div class="stat-label">Users Tested</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">7 min</div>
+                            <div class="stat-label">Avg. Conversation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
                             <i class="ri-tools-line"></i>
                         </div>
                         <div>
@@ -1232,7 +1330,7 @@
                         </div>
                         <div class="project-stats">
                             <div class="stat">
-                                <div class="stat-number">Final Assessment</div>
+                                <div class="stat-number">Preprint</div>
                                 <div class="stat-label">Status</div>
                             </div>
                             <div class="stat">
