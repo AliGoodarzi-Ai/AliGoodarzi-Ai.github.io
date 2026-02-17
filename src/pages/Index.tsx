@@ -7,6 +7,7 @@ import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
 import NeuralNetworkCSS from "@/components/NeuralNetworkCSS";
 import TransformerViz from "@/components/TransformerViz";
+import SemanticSearch3D from "@/components/SemanticSearch3D";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -220,13 +221,19 @@ const Index = () => {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-2">
-              <span className="text-gradient">Deep Learning</span> Architectures
+              <span className="text-gradient">AI</span> Architecture Visualizations
             </h3>
             <p className="text-sm text-muted-foreground">
-              Interactive visualizations of neural network architectures
+              Interactive 3D and 2D visualizations of deep learning systems
             </p>
           </div>
           
+          {/* 3D Semantic Search - Full Width */}
+          <div className="mb-6">
+            <SemanticSearch3D />
+          </div>
+          
+          {/* 2D Visualizations Grid */}
           <div className="grid lg:grid-cols-2 gap-6">
             <NeuralNetworkCSS />
             <TransformerViz />
