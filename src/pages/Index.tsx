@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
-import NeuralNetwork3D from "@/components/NeuralNetwork3D";
-import TransformerViz from "@/components/TransformerViz";
-import SemanticSearch3D from "@/components/SemanticSearch3D";
+import ModernTransformer3D from "@/components/ModernTransformer3D";
+import AgenticAI3D from "@/components/AgenticAI3D";
+import RAGPipeline3D from "@/components/RAGPipeline3D";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -221,22 +221,18 @@ const Index = () => {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-2">
-              <span className="text-gradient">AI</span> Architecture Visualizations
+              <span className="text-gradient">State-of-the-Art</span> AI Architectures
             </h3>
             <p className="text-sm text-muted-foreground">
-              Interactive 3D and 2D visualizations of deep learning systems
+              Interactive 3D visualizations of modern AI systems I work with
             </p>
           </div>
           
-          {/* 3D Semantic Search - Full Width */}
-          <div className="mb-6">
-            <SemanticSearch3D />
-          </div>
-          
-          {/* 3D Neural Network + Transformer Grid */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            <NeuralNetwork3D />
-            <TransformerViz />
+          {/* Three visualizations stacked vertically */}
+          <div className="space-y-6">
+            <ModernTransformer3D />
+            <AgenticAI3D />
+            <RAGPipeline3D />
           </div>
         </motion.div>
       </motion.section>
