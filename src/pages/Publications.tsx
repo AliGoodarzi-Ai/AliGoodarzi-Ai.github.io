@@ -35,22 +35,20 @@ const publications: Publication[] = [
     abstract:
       "A comprehensive study on integrating Toulmin argumentation analysis with semantic search and LLMs to enhance critical thinking capabilities. The system demonstrates significant improvements in reasoning quality compared to direct LLM usage.",
     tags: ["LLMs", "Argumentation", "Educational AI", "GPT-4", "Semantic Search"],
-    links: [
-      { type: "pdf", url: "https://www.researchgate.net/profile/Ali-Goodarzi-7" },
-    ],
+    links: [],
     metrics: { reads: 150, citations: 0 },
     featured: true,
   },
   {
     title: "Systematic Review: Machine Learning and Deep Learning Approaches for Early Alzheimer's Detection",
     authors: ["Ali Goodarzi", "et al."],
-    venue: "Journal of Advanced Pharmacy Education & Research (JAPER)",
+    venue: "International Journal of Medical Informatics",
     year: "2025",
     type: "journal",
     abstract:
       "A systematic review examining ML and DL approaches for early Alzheimer's detection across imaging, biosignal, and multimodal datasets. Provides comprehensive analysis of current techniques and future directions.",
     tags: ["Alzheimer's", "Medical AI", "Systematic Review", "Early Detection"],
-    links: [{ type: "doi", url: "https://www.researchgate.net/profile/Ali-Goodarzi-7" }],
+    links: [{ type: "doi", url: "https://healthinformaticsjournal.com/index.php/IJMI/article/view/2888/2934" }],
     metrics: { reads: 85, citations: 2 },
     featured: true,
   },
@@ -63,7 +61,7 @@ const publications: Publication[] = [
     abstract:
       "Investigation of transfer learning approaches for diabetic retinopathy detection using ResNet, EfficientNet, DenseNet, and VGG architectures with attention mechanisms and ensemble methods.",
     tags: ["Transfer Learning", "Medical Imaging", "Ensemble", "Deep Learning"],
-    links: [{ type: "pdf", url: "https://www.researchgate.net/profile/Ali-Goodarzi-7" }],
+    links: [],
     metrics: { reads: 65 },
   },
   {
@@ -75,7 +73,7 @@ const publications: Publication[] = [
     abstract:
       "Novel approach to emotion recognition through ECG signal analysis. Utilizes machine learning models on MIT-BIH dataset to classify emotional states from cardiac rhythm patterns.",
     tags: ["ECG", "Emotion Recognition", "Signal Processing", "Biomedical AI"],
-    links: [{ type: "pdf", url: "https://www.researchgate.net/profile/Ali-Goodarzi-7" }],
+    links: [],
     metrics: { reads: 180, interest: 3.0 },
   },
   {
@@ -87,7 +85,7 @@ const publications: Publication[] = [
     abstract:
       "Data mining study analyzing factors affecting student performance. Predictive models reveal significant impact of family support and study time on academic success.",
     tags: ["Data Mining", "Educational Analytics", "Predictive Modeling"],
-    links: [{ type: "pdf", url: "https://www.researchgate.net/profile/Ali-Goodarzi-7" }],
+    links: [],
     metrics: { reads: 214, citations: 1 },
   },
 ];

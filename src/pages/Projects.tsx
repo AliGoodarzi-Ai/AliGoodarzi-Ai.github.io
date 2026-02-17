@@ -137,6 +137,36 @@ const projects: Project[] = [
       { label: "Processing", value: "Batch" },
     ],
   },
+  {
+    title: "Mineral Particle Mass Calculation",
+    description: "Embedded Vision System with STM32",
+    longDescription:
+      "Embedded computer vision system using STM32 microcontroller and modular camera module for real-time mineral particle mass estimation. Custom PCB design in Altium Designer with on-board image processing pipeline.",
+    tags: ["STM32", "Embedded Vision", "Altium Designer", "PCB Design", "Image Processing"],
+    icon: Cpu,
+    color: "secondary",
+    status: "live",
+    links: [{ type: "github", url: "https://github.com/AliGoodarzi-Ai" }],
+    metrics: [
+      { label: "Platform", value: "STM32" },
+      { label: "Processing", value: "On-device" },
+    ],
+  },
+  {
+    title: "Reddit Conversational Agent",
+    description: "RAG-Augmented Knowledge Assistant",
+    longDescription:
+      "Agentic conversational system with retrieval-augmented generation (RAG) for context-aware responses. Implements vector embeddings, semantic search, and multi-turn dialogue management with persistent memory.",
+    tags: ["AI Agents", "RAG", "LangChain", "Vector DB", "Semantic Search", "Python"],
+    icon: Bot,
+    color: "accent",
+    status: "development",
+    links: [{ type: "github", url: "https://github.com/AliGoodarzi-Ai" }],
+    metrics: [
+      { label: "Architecture", value: "Agentic" },
+      { label: "Memory", value: "Persistent" },
+    ],
+  },
 ];
 
 const colorMap = {

@@ -65,12 +65,12 @@ const skillCategories = [
     title: "Hardware & Embedded Systems",
     color: "primary" as const,
     skills: [
+      "STM32 Microcontrollers",
       "PCB Design (Altium Designer)",
+      "Schematic Capture & Layout",
       "ESP32, Arduino, IoT",
       "PLC Programming (Siemens)",
       "MQTT, LoRaWAN Protocols",
-      "Strain Gauge Calibration",
-      "Industrial Automation",
     ],
   },
 ];

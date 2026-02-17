@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root, .dark {
     /* Much better readability - lighter background, higher contrast */
     --background: 220 20% 12%;
     --foreground: 210 20% 95%;
@@ -35,6 +35,36 @@
     --sidebar-accent-foreground: 210 20% 95%;
     --sidebar-border: 220 15% 22%;
     --sidebar-ring: 180 85% 55%;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 220 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    --primary: 180 75% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 145 65% 38%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 270 55% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 10% 85%;
+    --input: 220 10% 92%;
+    --ring: 180 75% 40%;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 180 75% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 90%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 220 10% 85%;
+    --sidebar-ring: 180 75% 40%;
   }
 }
 

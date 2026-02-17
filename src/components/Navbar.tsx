@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Brain, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSelector from "./LanguageSelector";
 
 const links = [
   { to: "/", label: "Home", icon: "🏠" },
@@ -85,6 +87,12 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
+          
+          {/* Theme and Language controls */}
+          <div className="ml-2 flex items-center gap-2">
+            <LanguageSelector />
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* AI Status indicator */}
@@ -166,10 +174,16 @@ const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="flex items-center justify-center gap-2 pt-4 text-xs text-muted-foreground border-t border-border/30 mt-4"
+                className="flex items-center justify-between pt-4 border-t border-border/30 mt-4"
               >
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="font-mono">SYSTEM STATUS: ONLINE</span>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                  <span className="font-mono">ONLINE</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <LanguageSelector />
+                  <ThemeToggle />
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { 
+  Brain, 
+  Microscope, 
+  Cpu, 
+  Users, 
+  HeartPulse, 
+  LineChart,
+  ArrowRight,
+  ExternalLink,
+  Calendar,
+  Target
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -8,159 +21,289 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
-interface Project {
-  title: string;
-  type: string;
-  date: string;
-  desc: string;
-  tags: string[];
-  stats: { label: string; value: string }[];
-}
-
-const projects: Project[] = [
+// Research Areas / Focus
+const researchAreas = [
   {
-    title: "Mind Elevator: AI-Powered Argumentation System",
-    type: "Master's Thesis",
-    date: "2024–2025",
-    desc: "Web-based system integrating Toulmin argumentation analysis with real-time semantic search. Features MSSP utilizing vector embeddings and GPT-4 API to enhance critical thinking in educational settings.",
-    tags: ["LLMs", "Semantic Search", "Educational AI", "GPT-4"],
-    stats: [{ label: "Impact", value: "High" }, { label: "Status", value: "Published" }],
+    icon: Brain,
+    title: "AI Agents & LLMs",
+    description: "Autonomous agents, prompt engineering, retrieval-augmented generation (RAG), and agentic systems",
+    keywords: ["GPT-4", "LangChain", "Vector Embeddings", "Semantic Search"],
+    color: "primary",
   },
   {
-    title: "Therapeutic Companion: Conversational AI Agent",
-    type: "Hackathon",
-    date: "Scale Hack AI 2024",
-    desc: "Conversational AI agent combining speech-to-text, LLM-powered dialogue, and text-to-speech for mental health support with older adults. Features natural turn-taking and persistent persona learning.",
-    tags: ["Conversational AI", "Voice", "LLMs", "Mental Health"],
-    stats: [{ label: "Users Tested", value: "34" }, { label: "Avg. Conv.", value: "7 min" }],
+    icon: Users,
+    title: "Human-AI Interaction",
+    description: "Designing systems that augment human cognition through structured AI collaboration",
+    keywords: ["HAI", "Cognitive Enhancement", "User Studies", "Argumentation"],
+    color: "secondary",
   },
   {
-    title: "Industrial AI: Affordance Theory Implementation",
-    type: "Research Project",
-    date: "2024",
-    desc: "Computer vision system applying Gibson's affordance theory to industrial object detection and context-aware instruction generation with real-time safety monitoring.",
-    tags: ["Computer Vision", "Affordance Theory", "Industrial AI", "Safety"],
-    stats: [{ label: "Objects/Frame", value: "11+" }, { label: "Processing", value: "Real-time" }],
+    icon: Microscope,
+    title: "Biomedical AI",
+    description: "Machine learning for medical imaging, biosignal analysis, and clinical decision support",
+    keywords: ["Medical Imaging", "ECG Analysis", "Alzheimer's Detection", "Diagnostics"],
+    color: "accent",
   },
   {
-    title: "Transfer Learning for Medical Image Classification",
-    type: "Deep Learning Research",
-    date: "January 2025",
-    desc: "Transfer learning for diabetic retinopathy detection using ResNet, EfficientNet, DenseNet, VGG. Attention mechanisms, two-step fine-tuning, and five ensemble methods.",
-    tags: ["Transfer Learning", "Medical AI", "Ensemble", "Computer Vision"],
-    stats: [{ label: "Reads", value: "5" }, { label: "Models", value: "4" }],
-  },
-  {
-    title: "ECG-Based Emotion Classification",
-    type: "ML Research",
-    date: "October 2024",
-    desc: "Brain-heart connection through ECG analysis for emotion detection. ML models using MIT-BIH dataset to classify emotional states from heart rhythm patterns.",
-    tags: ["ECG", "Emotion Recognition", "Biomedical AI", "Signal Processing"],
-    stats: [{ label: "Reads", value: "180" }, { label: "Interest", value: "3.0" }],
-  },
-  {
-    title: "Systematic Review: AI for Alzheimer's Detection",
-    type: "Literature Review",
-    date: "2025",
-    desc: "Systematic review of ML and DL approaches for early Alzheimer's detection across imaging, biosignal, and multimodal datasets. Published in JAPER.",
-    tags: ["Alzheimer's", "Medical AI", "Early Detection", "Review"],
-    stats: [{ label: "Studies", value: "20+" }, { label: "Status", value: "Published" }],
-  },
-  {
-    title: "Graph Neural Networks for Financial Anomaly Detection",
-    type: "Data Science Research",
-    date: "2025",
-    desc: "GNN architectures for transaction and entity-graph modelling to detect anomalies and fraud, with attention to temporal dynamics and interpretability.",
-    tags: ["GNNs", "Financial AI", "Anomaly Detection", "Explainable AI"],
-    stats: [{ label: "Eval", value: "Model Optimization" }, { label: "Benchmarked", value: "✓" }],
-  },
-  {
-    title: "Academic Performance Forecasting",
-    type: "Data Mining Research",
-    date: "April 2024",
-    desc: "Data mining study analyzing student performance factors. Predictive models revealing impact of family support and study time on academic success.",
-    tags: ["Data Mining", "Predictive Modeling", "Educational Analytics"],
-    stats: [{ label: "Reads", value: "214" }, { label: "Citations", value: "1" }],
-  },
-  {
-    title: "iSafe PDF: Intelligent Compression Tool",
-    type: "Software Development",
-    date: "2025",
-    desc: "Python tool leveraging PyMuPDF and Pillow for PDF compression with batch processing, CLI, and automation via batch scripts.",
-    tags: ["Python", "Automation", "PyMuPDF", "CLI"],
-    stats: [{ label: "Compression", value: "10×" }, { label: "Processing", value: "Batch" }],
+    icon: Cpu,
+    title: "Computer Vision",
+    description: "Object detection, image classification, and affordance theory in industrial applications",
+    keywords: ["YOLO", "Transfer Learning", "Industrial AI", "Safety Systems"],
+    color: "primary",
   },
 ];
 
+// Timeline of Research
+const researchTimeline = [
+  {
+    year: "2024-2025",
+    title: "AI-Powered Argumentation System",
+    role: "Master's Thesis",
+    institution: "University of Oulu",
+    description: "Developed Mind Elevator, a web-based system integrating Toulmin argumentation analysis with semantic search and GPT-4. Demonstrated significant improvements in critical thinking compared to direct LLM usage.",
+    impact: ["50+ users tested", "Published thesis", "Educational AI application"],
+    tags: ["LLMs", "GPT-4", "Semantic Search", "Educational AI"],
+    icon: Brain,
+  },
+  {
+    year: "2024",
+    title: "Therapeutic Conversational AI",
+    role: "Scale Hack AI 2024",
+    institution: "Hackathon Project",
+    description: "Built a conversational AI agent combining speech-to-text, LLM-powered dialogue, and text-to-speech for mental health support. Features natural turn-taking and persona learning.",
+    impact: ["34 older adult users", "7 min avg. conversation", "Real-time voice interaction"],
+    tags: ["Voice AI", "Mental Health", "LLMs", "TTS/STT"],
+    icon: HeartPulse,
+  },
+  {
+    year: "2024",
+    title: "Industrial Computer Vision",
+    role: "Research Project",
+    institution: "University of Oulu",
+    description: "Applied Gibson's affordance theory to industrial object detection with context-aware instruction generation and real-time safety monitoring.",
+    impact: ["11+ objects per frame", "Real-time processing", "Safety-critical application"],
+    tags: ["Computer Vision", "Affordance Theory", "Industrial AI", "YOLO"],
+    icon: Cpu,
+  },
+  {
+    year: "2025",
+    title: "Medical Image Classification",
+    role: "Deep Learning Research",
+    institution: "Independent Research",
+    description: "Transfer learning for diabetic retinopathy detection using ResNet, EfficientNet, DenseNet, VGG with attention mechanisms and ensemble methods.",
+    impact: ["94.2% accuracy", "4 architecture ensemble", "Two-step fine-tuning"],
+    tags: ["Transfer Learning", "Medical AI", "Ensemble", "PyTorch"],
+    icon: Microscope,
+  },
+  {
+    year: "2024",
+    title: "ECG Emotion Classification",
+    role: "ML Research",
+    institution: "Biomedical AI",
+    description: "Exploring the brain-heart connection through ECG analysis for emotion detection using MIT-BIH dataset and machine learning models.",
+    impact: ["180 reads on ResearchGate", "Novel signal processing approach"],
+    tags: ["ECG", "Emotion Recognition", "Signal Processing", "Biomedical AI"],
+    icon: HeartPulse,
+  },
+  {
+    year: "2025",
+    title: "Alzheimer's Detection Review",
+    role: "Systematic Review",
+    institution: "Published in JAPER",
+    description: "Comprehensive systematic review of ML and DL approaches for early Alzheimer's detection across imaging, biosignal, and multimodal datasets.",
+    impact: ["20+ studies analyzed", "Published in journal", "Clinical AI review"],
+    tags: ["Systematic Review", "Alzheimer's", "Medical AI", "Early Detection"],
+    icon: Microscope,
+  },
+  {
+    year: "2024",
+    title: "Academic Performance Forecasting",
+    role: "Data Mining Research",
+    institution: "Conference Paper",
+    description: "Data mining study analyzing factors affecting student performance. Predictive models reveal impact of family support and study time on success.",
+    impact: ["214 reads", "1 citation", "Educational data mining"],
+    tags: ["Data Mining", "Predictive Modeling", "Educational Analytics"],
+    icon: LineChart,
+  },
+];
+
+const colorMap = {
+  primary: "text-primary bg-primary/10 border-primary/30",
+  secondary: "text-secondary bg-secondary/10 border-secondary/30",
+  accent: "text-accent bg-accent/10 border-accent/30",
+};
+
 const Research = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
       <motion.div
         variants={stagger}
         initial="hidden"
         animate="show"
         className="py-8"
       >
-        <motion.h1
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="text-4xl sm:text-5xl font-bold mb-2"
-        >
-          Research <span className="text-gradient">Projects</span>
-        </motion.h1>
-        <motion.p
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="text-muted-foreground mb-10 max-w-2xl"
-        >
-          A collection of AI research spanning LLMs, computer vision, biomedical AI, and human-AI interaction.
-        </motion.p>
+        {/* Header */}
+        <motion.div variants={fadeUp} className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-xl bg-primary/10 text-primary">
+              <Microscope className="w-6 h-6" />
+            </div>
+            <span className="text-sm font-mono text-muted-foreground">RESEARCH OVERVIEW</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            Research <span className="text-gradient">Portfolio</span>
+          </h1>
+          <p className="text-muted-foreground max-w-2xl text-lg">
+            My research bridges AI theory and practical applications, focusing on systems that 
+            enhance human capabilities through intelligent collaboration.
+          </p>
+        </motion.div>
 
-        <div className="grid gap-6">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.title}
-              variants={fadeUp}
-              transition={{ duration: 0.4 }}
-              className="glass p-6 sm:p-8 hover:shadow-glow-primary transition-all duration-500 group"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
-                <div>
-                  <h2 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                    {p.title}
-                  </h2>
-                  <p className="text-sm text-muted-foreground font-mono mt-1">
-                    {p.type} • {p.date}
-                  </p>
-                </div>
-                <div className="flex gap-4 shrink-0">
-                  {p.stats.map((s) => (
-                    <div key={s.label} className="text-center">
-                      <div className="text-lg font-bold text-primary">{s.value}</div>
-                      <div className="text-xs text-muted-foreground">{s.label}</div>
+        {/* Research Areas Grid */}
+        <motion.div variants={fadeUp} className="mb-16">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <Target className="w-5 h-5 text-primary" />
+            Research Focus Areas
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {researchAreas.map((area) => (
+              <motion.div
+                key={area.title}
+                variants={fadeUp}
+                className={`glass p-6 hover:shadow-glow-${area.color} transition-all duration-500 group`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-xl ${colorMap[area.color as keyof typeof colorMap]}`}>
+                    <area.icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {area.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-3">{area.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {area.keywords.map((kw) => (
+                        <span
+                          key={kw}
+                          className="px-2 py-0.5 text-xs font-mono rounded bg-muted/50 text-muted-foreground"
+                        >
+                          {kw}
+                        </span>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
+        {/* Research Timeline */}
+        <motion.div variants={fadeUp}>
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-secondary" />
+            Research Timeline
+          </h2>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-accent opacity-30" />
+            
+            <div className="space-y-6">
+              {researchTimeline.map((item, idx) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  transition={{ delay: idx * 0.05 }}
+                  className="relative pl-16 sm:pl-20"
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute left-4 sm:left-6 top-2 w-4 h-4 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-background shadow-glow-primary" />
+                  
+                  {/* Year badge */}
+                  <div className="absolute left-0 top-0 -translate-x-2 sm:translate-x-0">
+                    <span className="text-[10px] font-mono text-primary/70 writing-mode-vertical hidden sm:block">
+                      {item.year}
+                    </span>
+                  </div>
+                  
+                  <div className="glass p-5 sm:p-6 hover:shadow-glow-primary transition-all duration-500 group">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                          <item.icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold group-hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-xs text-muted-foreground font-mono">
+                            {item.role} • {item.institution} • <span className="text-primary">{item.year}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                    
+                    {/* Impact points */}
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {item.impact.map((point) => (
+                        <span
+                          key={point}
+                          className="px-2 py-1 text-xs rounded bg-secondary/10 text-secondary border border-secondary/20"
+                        >
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-xs font-mono rounded-full bg-primary/5 text-primary/60 border border-primary/10"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
 
-              <div className="flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1 text-xs font-mono rounded-full bg-primary/10 text-primary/80 border border-primary/20"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.article>
-          ))}
-        </div>
+        {/* CTA */}
+        <motion.div
+          variants={fadeUp}
+          className="mt-16 text-center"
+        >
+          <div className="glass-glow inline-block p-8">
+            <h3 className="text-2xl font-bold mb-2">Interested in Collaboration?</h3>
+            <p className="text-muted-foreground mb-6 max-w-md">
+              I'm always open to discussing research ideas, potential collaborations, 
+              and opportunities in AI and human-computer interaction.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Button variant="glow" asChild>
+                <Link to="/publications">
+                  View Publications <ArrowRight className="ml-1 w-4 h-4" />
+                </Link>
+              </Button>
+              <Button variant="glow-outline" asChild>
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );
