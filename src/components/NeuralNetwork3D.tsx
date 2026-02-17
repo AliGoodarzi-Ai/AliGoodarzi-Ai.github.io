@@ -1,6 +1,6 @@
-import { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls } from "@react-three/drei";
+import { useRef, useMemo, Suspense } from "react";
+import { Canvas, useFrame, extend } from "@react-three/fiber";
+import { Float, OrbitControls, Line } from "@react-three/drei";
 import * as THREE from "three";
 
 // Neuron (node) component
@@ -37,39 +37,26 @@ const Neuron = ({
   );
 };
 
-// Connection (edge) component
+// Connection (edge) component using drei's Line
 const Connection = ({
   start,
   end,
-  color = "#00D9FF",
-  opacity = 0.3
+  color = "#4A5568",
+  opacity = 0.4
 }: {
   start: [number, number, number];
   end: [number, number, number];
   color?: string;
   opacity?: number;
 }) => {
-  const ref = useRef<THREE.Line>(null);
-  
-  const points = useMemo(() => {
-    return [new THREE.Vector3(...start), new THREE.Vector3(...end)];
-  }, [start, end]);
-
-  const geometry = useMemo(() => {
-    return new THREE.BufferGeometry().setFromPoints(points);
-  }, [points]);
-
-  useFrame((state) => {
-    if (ref.current) {
-      const material = ref.current.material as THREE.LineBasicMaterial;
-      material.opacity = opacity * (0.6 + Math.sin(state.clock.elapsedTime * 3) * 0.4);
-    }
-  });
-
   return (
-    <line ref={ref} geometry={geometry}>
-      <lineBasicMaterial color={color} transparent opacity={opacity} />
-    </line>
+    <Line
+      points={[start, end]}
+      color={color}
+      lineWidth={1}
+      transparent
+      opacity={opacity}
+    />
   );
 };
 
@@ -188,29 +175,38 @@ const NeuralNetworkStructure = () => {
   );
 };
 
+// Loading fallback
+const LoadingFallback = () => (
+  <mesh>
+    <boxGeometry args={[1, 1, 1]} />
+    <meshBasicMaterial color="#00D9FF" wireframe />
+  </mesh>
+);
+
 // Main component
 const NeuralNetwork3D = ({ className = "" }: { className?: string }) => {
   return (
-    <div className={`w-full h-[400px] ${className}`}>
+    <div className={`w-full h-[400px] rounded-xl overflow-hidden ${className}`} style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%)" }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
         gl={{ antialias: true, alpha: true }}
-        style={{ background: "transparent" }}
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8B5CF6" />
-        
-        <NeuralNetworkStructure />
-        
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
-          autoRotate 
-          autoRotateSpeed={0.5}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
+        <Suspense fallback={<LoadingFallback />}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} color="#8B5CF6" />
+          
+          <NeuralNetworkStructure />
+          
+          <OrbitControls 
+            enableZoom={false} 
+            enablePan={false}
+            autoRotate 
+            autoRotateSpeed={0.5}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );
