@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
-import NeuralNetworkCSS from "@/components/NeuralNetworkCSS";
+import NeuralNetwork3D from "@/components/NeuralNetwork3D";
 import TransformerViz from "@/components/TransformerViz";
 import SemanticSearch3D from "@/components/SemanticSearch3D";
 
@@ -233,9 +233,9 @@ const Index = () => {
             <SemanticSearch3D />
           </div>
           
-          {/* 2D Visualizations Grid */}
+          {/* 3D Neural Network + Transformer Grid */}
           <div className="grid lg:grid-cols-2 gap-6">
-            <NeuralNetworkCSS />
+            <NeuralNetwork3D />
             <TransformerViz />
           </div>
         </motion.div>
