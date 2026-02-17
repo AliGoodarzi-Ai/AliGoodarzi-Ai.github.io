@@ -3,7 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Brain, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-import LanguageSelector from "./LanguageSelector";
 
 const links = [
   { to: "/", label: "Home", icon: "🏠" },
@@ -88,9 +87,8 @@ const Navbar = () => {
             </NavLink>
           ))}
           
-          {/* Theme and Language controls */}
+          {/* Theme controls */}
           <div className="ml-2 flex items-center gap-2">
-            <LanguageSelector />
             <ThemeToggle />
           </div>
         </div>
@@ -181,7 +179,6 @@ const Navbar = () => {
                   <span className="font-mono">ONLINE</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <LanguageSelector />
                   <ThemeToggle />
                 </div>
               </motion.div>

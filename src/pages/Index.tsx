@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
-import NeuralNetwork3D from "@/components/NeuralNetwork3D";
+import NeuralNetworkCSS from "@/components/NeuralNetworkCSS";
+import TransformerViz from "@/components/TransformerViz";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -212,20 +213,24 @@ const Index = () => {
           })}
         </div>
 
-        {/* 3D Neural Network Visualization */}
+        {/* AI Architecture Visualizations */}
         <motion.div 
           variants={fadeUp}
-          className="mt-16 glass p-6 rounded-2xl"
+          className="mt-16"
         >
-          <div className="text-center mb-4">
-            <h3 className="text-xl font-semibold mb-2">
-              <span className="text-gradient">Neural Network</span> Visualization
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">
+              <span className="text-gradient">Deep Learning</span> Architectures
             </h3>
             <p className="text-sm text-muted-foreground">
-              Interactive 3D representation of deep learning architecture
+              Interactive visualizations of neural network architectures
             </p>
           </div>
-          <NeuralNetwork3D />
+          
+          <div className="grid lg:grid-cols-2 gap-6">
+            <NeuralNetworkCSS />
+            <TransformerViz />
+          </div>
         </motion.div>
       </motion.section>
 

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Users, MapPin, Clock, Cloud, Thermometer } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 interface LocationInfo {
   city?: string;
@@ -11,7 +10,6 @@ interface LocationInfo {
 }
 
 const VisitorWidget = () => {
-  const { t } = useLanguage();
   const [visitorCount, setVisitorCount] = useState<number>(0);
   const [localTime, setLocalTime] = useState<string>("");
   const [location, setLocation] = useState<LocationInfo>({});
@@ -108,7 +106,7 @@ const VisitorWidget = () => {
       <div className="glass px-3 py-1.5 flex items-center gap-1.5 group hover:shadow-glow-primary transition-all">
         <Users className="w-3 h-3 text-primary" />
         <span className="text-muted-foreground">
-          <span className="text-primary font-bold">{visitorCount.toLocaleString()}</span> {t("common.visits")}
+          <span className="text-primary font-bold">{visitorCount.toLocaleString()}</span> visits
         </span>
       </div>
 
