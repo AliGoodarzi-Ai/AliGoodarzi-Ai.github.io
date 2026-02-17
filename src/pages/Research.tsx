@@ -27,7 +27,7 @@ const projects: Project[] = [
     date: "2024–2025",
     desc: "Web-based system integrating Toulmin argumentation analysis with real-time semantic search. Features MSSP utilizing vector embeddings and GPT-4 API to enhance critical thinking in educational settings.",
     tags: ["LLMs", "Semantic Search", "Educational AI", "GPT-4"],
-    stats: [{ label: "Grade", value: "5/5" }, { label: "Status", value: "Published" }],
+    stats: [{ label: "Impact", value: "High" }, { label: "Status", value: "Published" }],
   },
   {
     title: "Therapeutic Companion: Conversational AI Agent",

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Zap, Brain, Bot, Eye, MessageSquare, FileText, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AmbientOrbs from "@/components/AmbientOrbs";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -38,8 +39,8 @@ const projects: Project[] = [
       { type: "github", url: "https://github.com/AliGoodarzi-Ai" },
     ],
     metrics: [
-      { label: "Grade", value: "5/5" },
       { label: "Users Tested", value: "50+" },
+      { label: "Impact", value: "High" },
     ],
   },
   {
@@ -167,17 +168,21 @@ const statusConfig = {
 
 const Projects = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6">
-      <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
-        {/* Header */}
-        <motion.div variants={fadeUp} className="text-center mb-12">
-          <h1 className="text-4xl sm:text-6xl font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            A showcase of AI systems, research implementations, and tools I've built.
-            Each project represents a step forward in human-AI interaction.
-          </p>
+    <div className="relative min-h-screen">
+      {/* Ambient background effect */}
+      <AmbientOrbs className="z-0" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
+          {/* Header */}
+          <motion.div variants={fadeUp} className="text-center mb-12">
+            <h1 className="text-4xl sm:text-6xl font-bold mb-4">
+              Featured <span className="text-gradient">Projects</span>
+            </h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              A showcase of AI systems, research implementations, and tools I've built.
+              Each project represents a step forward in human-AI interaction.
+            </p>
         </motion.div>
 
         {/* AI Processing Indicator */}
@@ -296,6 +301,7 @@ const Projects = () => {
           </div>
         </motion.div>
       </motion.div>
+      </div>
     </div>
   );
 };

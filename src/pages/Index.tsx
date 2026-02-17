@@ -57,7 +57,7 @@ const colorMap = {
 const stats = [
   { value: "5+", label: "Research Projects", icon: BookOpen },
   { value: "10+", label: "Publications", icon: Zap },
-  { value: "3", label: "AI Systems Built", icon: Code },
+  { value: "9", label: "AI Systems Built", icon: Code },
   { value: "50+", label: "Users Tested", icon: Users },
 ];
 
@@ -238,8 +238,8 @@ const Index = () => {
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-6">
                 An AI-powered argumentation system that enhances critical thinking through 
-                Toulmin analysis and GPT-4 integration. Achieved a <span className="text-primary font-bold">5/5 grade</span> and 
-                demonstrated significant improvements in reasoning quality compared to direct LLM usage.
+                Toulmin analysis and GPT-4 integration. Demonstrated significant improvements 
+                in reasoning quality compared to direct LLM usage through rigorous user studies.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {["LLMs", "GPT-4", "Semantic Search", "Education", "React", "Python"].map((tag) => (

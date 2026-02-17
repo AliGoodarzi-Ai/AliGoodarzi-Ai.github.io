@@ -120,12 +120,11 @@ const Publications = () => {
         {/* Stats Overview */}
         <motion.div
           variants={fadeUp}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12"
         >
           {[
             { label: "Publications", value: publications.length, icon: FileText },
             { label: "Total Reads", value: totalReads.toLocaleString(), icon: TrendingUp },
-            { label: "Citations", value: totalCitations, icon: Award },
             { label: "Research Areas", value: "5+", icon: BookOpen },
           ].map((stat) => (
             <div key={stat.label} className="glass p-4 text-center">

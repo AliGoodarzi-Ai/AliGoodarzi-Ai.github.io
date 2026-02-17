@@ -12,7 +12,7 @@ const conversation: { role: "ai" | "user"; content: string }[] = [
   { role: "user", content: "What are your research interests?" },
   { role: "ai", content: "I specialize in Human-AI Interaction, LLMs, and AI Agents. My work focuses on augmenting human cognition through structured AI collaboration." },
   { role: "user", content: "Tell me about Mind Elevator" },
-  { role: "ai", content: "Mind Elevator is an AI-powered argumentation system that enhances critical thinking using Toulmin analysis and GPT-4. It achieved a 5/5 grade as my Master's thesis!" },
+  { role: "ai", content: "Mind Elevator is an AI-powered argumentation system that enhances critical thinking using Toulmin analysis and GPT-4. It demonstrated significant improvements in reasoning quality!" },
   { role: "user", content: "What technologies do you use?" },
   { role: "ai", content: "Python, PyTorch, React, LangChain, OpenAI APIs, vector embeddings, and more. I love combining deep learning with human-centric design." },
 ];

@@ -16,7 +16,7 @@ I'm a PhD Student in Computer Science specializing in:
 
 ## 🔬 Featured Research
 
-- **Mind Elevator** - AI-powered argumentation system enhancing critical thinking (Master's Thesis, Grade: 5/5)
+- **Mind Elevator** - AI-powered argumentation system enhancing critical thinking (Master's Thesis)
 - **Therapeutic Companion** - Conversational AI for mental health support
 - **Industrial Vision AI** - Affordance theory implementation for computer vision
 
