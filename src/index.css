@@ -268,6 +268,13 @@
   to { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
 }
 
+@keyframes matrix-fall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
 /* Scrollbar styling - more visible */
 ::-webkit-scrollbar {
   width: 8px;

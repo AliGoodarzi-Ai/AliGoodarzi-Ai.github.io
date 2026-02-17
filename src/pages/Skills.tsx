@@ -7,6 +7,7 @@ import {
   Award,
   GraduationCap,
 } from "lucide-react";
+import MatrixRain from "@/components/MatrixRain";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -103,88 +104,93 @@ const bgMap = {
 
 const Skills = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
-      <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
-        <motion.h1
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="text-4xl sm:text-5xl font-bold mb-2"
-        >
-          Technical <span className="text-gradient">Expertise</span>
-        </motion.h1>
-        <motion.p
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="text-muted-foreground mb-10"
-        >
-          Core skills across AI research, software engineering, and hardware systems.
-        </motion.p>
+    <div className="relative min-h-screen">
+      {/* Matrix Rain Background */}
+      <MatrixRain className="z-0" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
+          <motion.h1
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-4xl sm:text-5xl font-bold mb-2"
+          >
+            Technical <span className="text-gradient">Expertise</span>
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-muted-foreground mb-10"
+          >
+            Core skills across AI research, software engineering, and hardware systems.
+          </motion.p>
 
-        {/* Skills Grid */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-20">
-          {skillCategories.map((cat) => (
-            <motion.div
-              key={cat.title}
-              variants={fadeUp}
-              transition={{ duration: 0.4 }}
-              className={`glass p-6 transition-all duration-500 ${shadowMap[cat.color]}`}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <div className={`p-2.5 rounded-lg ${bgMap[cat.color]}`}>
-                  <cat.icon size={22} />
+          {/* Skills Grid */}
+          <div className="grid sm:grid-cols-2 gap-6 mb-20">
+            {skillCategories.map((cat) => (
+              <motion.div
+                key={cat.title}
+                variants={fadeUp}
+                transition={{ duration: 0.4 }}
+                className={`glass p-6 transition-all duration-500 ${shadowMap[cat.color]} backdrop-blur-xl`}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`p-2.5 rounded-lg ${bgMap[cat.color]}`}>
+                    <cat.icon size={22} />
+                  </div>
+                  <h2 className="text-lg font-semibold">{cat.title}</h2>
                 </div>
-                <h2 className="text-lg font-semibold">{cat.title}</h2>
-              </div>
-              <ul className="space-y-2.5">
-                {cat.skills.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-center gap-3 text-sm text-muted-foreground"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
+                <ul className="space-y-2.5">
+                  {cat.skills.map((s) => (
+                    <li
+                      key={s}
+                      className="flex items-center gap-3 text-sm text-foreground/80"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
 
-        {/* Certifications */}
-        <motion.h2
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl font-bold mb-2"
-        >
-          <span className="text-gradient">Certifications</span>
-        </motion.h2>
-        <motion.div
-          variants={fadeUp}
-          transition={{ duration: 0.5 }}
-          className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8"
-        />
+          {/* Certifications */}
+          <motion.h2
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-3xl sm:text-4xl font-bold mb-2"
+          >
+            <span className="text-gradient">Certifications</span>
+          </motion.h2>
+          <motion.div
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8"
+          />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {certifications.map((c, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              transition={{ duration: 0.3 }}
-              className="glass p-4 hover:shadow-glow-primary transition-all duration-300 group"
-            >
-              <div className="flex items-start gap-3">
-                <Award size={18} className="text-primary mt-0.5 shrink-0" />
-                <div>
-                  <p className="text-sm font-medium group-hover:text-primary transition-colors">
-                    {c.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground font-mono mt-1">{c.issuer}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {certifications.map((c, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                transition={{ duration: 0.3 }}
+                className="glass p-4 hover:shadow-glow-primary transition-all duration-300 group backdrop-blur-xl"
+              >
+                <div className="flex items-start gap-3">
+                  <Award size={18} className="text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-foreground/90 group-hover:text-primary transition-colors">
+                      {c.name}
+                    </p>
+                    <p className="text-xs text-muted-foreground font-mono mt-1">{c.issuer}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
