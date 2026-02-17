@@ -9,7 +9,9 @@ import {
   ArrowRight,
   ExternalLink,
   Calendar,
-  Target
+  Target,
+  Sun,
+  Droplet
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -56,17 +58,47 @@ const researchAreas = [
   },
 ];
 
-// Timeline of Research
+// Timeline of Research (chronological order: oldest first)
 const researchTimeline = [
   {
-    year: "2024-2025",
-    title: "AI-Powered Argumentation System",
-    role: "Master's Thesis",
-    institution: "University of Oulu",
-    description: "Developed Mind Elevator, a web-based system integrating Toulmin argumentation analysis with semantic search and GPT-4. Demonstrated significant improvements in critical thinking compared to direct LLM usage.",
-    impact: ["50+ users tested", "Published thesis", "Educational AI application"],
-    tags: ["LLMs", "GPT-4", "Semantic Search", "Educational AI"],
-    icon: Brain,
+    year: "2018",
+    title: "IoT Solar Power Distribution in Autonomous Systems",
+    role: "Research Project",
+    institution: "Undergraduate Research",
+    description: "Designed and implemented an IoT-based solar power distribution system for autonomous applications. Integrated embedded sensors with cloud monitoring for real-time power optimization and load balancing.",
+    impact: ["Autonomous power management", "IoT sensor network", "Real-time monitoring"],
+    tags: ["IoT", "Solar Energy", "Embedded Systems", "Autonomous Systems"],
+    icon: Sun,
+  },
+  {
+    year: "2020",
+    title: "Embedded Systems for Water Level Management",
+    role: "Engineering Project",
+    institution: "Hardware Development",
+    description: "Developed embedded system solutions for automated water level monitoring and management. Implemented sensor fusion, real-time alerts, and automated control mechanisms for industrial applications.",
+    impact: ["Industrial automation", "Sensor fusion", "Real-time control systems"],
+    tags: ["Embedded Systems", "Water Management", "Sensors", "Automation"],
+    icon: Droplet,
+  },
+  {
+    year: "2024",
+    title: "Academic Performance Forecasting",
+    role: "Data Mining Research",
+    institution: "Conference Paper",
+    description: "Data mining study analyzing factors affecting student performance. Predictive models reveal impact of family support and study time on success.",
+    impact: ["214 reads", "1 citation", "Educational data mining"],
+    tags: ["Data Mining", "Predictive Modeling", "Educational Analytics"],
+    icon: LineChart,
+  },
+  {
+    year: "2024",
+    title: "ECG Emotion Classification",
+    role: "ML Research",
+    institution: "Biomedical AI",
+    description: "Exploring the brain-heart connection through ECG analysis for emotion detection using MIT-BIH dataset and machine learning models.",
+    impact: ["180 reads on ResearchGate", "Novel signal processing approach"],
+    tags: ["ECG", "Emotion Recognition", "Signal Processing", "Biomedical AI"],
+    icon: HeartPulse,
   },
   {
     year: "2024",
@@ -90,26 +122,6 @@ const researchTimeline = [
   },
   {
     year: "2025",
-    title: "Medical Image Classification",
-    role: "Deep Learning Research",
-    institution: "Independent Research",
-    description: "Transfer learning for diabetic retinopathy detection using ResNet, EfficientNet, DenseNet, VGG with attention mechanisms and ensemble methods.",
-    impact: ["94.2% accuracy", "4 architecture ensemble", "Two-step fine-tuning"],
-    tags: ["Transfer Learning", "Medical AI", "Ensemble", "PyTorch"],
-    icon: Microscope,
-  },
-  {
-    year: "2024",
-    title: "ECG Emotion Classification",
-    role: "ML Research",
-    institution: "Biomedical AI",
-    description: "Exploring the brain-heart connection through ECG analysis for emotion detection using MIT-BIH dataset and machine learning models.",
-    impact: ["180 reads on ResearchGate", "Novel signal processing approach"],
-    tags: ["ECG", "Emotion Recognition", "Signal Processing", "Biomedical AI"],
-    icon: HeartPulse,
-  },
-  {
-    year: "2025",
     title: "Alzheimer's Detection Review",
     role: "Systematic Review",
     institution: "Published in JAPER",
@@ -119,14 +131,24 @@ const researchTimeline = [
     icon: Microscope,
   },
   {
-    year: "2024",
-    title: "Academic Performance Forecasting",
-    role: "Data Mining Research",
-    institution: "Conference Paper",
-    description: "Data mining study analyzing factors affecting student performance. Predictive models reveal impact of family support and study time on success.",
-    impact: ["214 reads", "1 citation", "Educational data mining"],
-    tags: ["Data Mining", "Predictive Modeling", "Educational Analytics"],
-    icon: LineChart,
+    year: "2025",
+    title: "Medical Image Classification",
+    role: "Deep Learning Research",
+    institution: "Independent Research",
+    description: "Transfer learning for diabetic retinopathy detection using ResNet, EfficientNet, DenseNet, VGG with attention mechanisms and ensemble methods.",
+    impact: ["94.2% accuracy", "4 architecture ensemble", "Two-step fine-tuning"],
+    tags: ["Transfer Learning", "Medical AI", "Ensemble", "PyTorch"],
+    icon: Microscope,
+  },
+  {
+    year: "2024-2025",
+    title: "AI-Powered Argumentation System",
+    role: "Master's Thesis",
+    institution: "University of Oulu",
+    description: "Developed Mind Elevator, a web-based system integrating Toulmin argumentation analysis with semantic search and GPT-4. Demonstrated significant improvements in critical thinking compared to direct LLM usage.",
+    impact: ["50+ users tested", "Published thesis", "Educational AI application"],
+    tags: ["LLMs", "GPT-4", "Semantic Search", "Educational AI"],
+    icon: Brain,
   },
 ];
 
@@ -209,8 +231,8 @@ const Research = () => {
           </h2>
           
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-accent opacity-30" />
+            {/* Timeline line - stops before the last item's center */}
+            <div className="absolute left-6 sm:left-8 top-0 w-px bg-gradient-to-b from-primary via-secondary to-accent opacity-30" style={{ height: 'calc(100% - 30px)' }} />
             
             <div className="space-y-6">
               {researchTimeline.map((item, idx) => (
@@ -220,8 +242,8 @@ const Research = () => {
                   transition={{ delay: idx * 0.05 }}
                   className="relative pl-16 sm:pl-20"
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 sm:left-6 top-2 w-4 h-4 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-background shadow-glow-primary" />
+                  {/* Timeline dot - last item gets special styling */}
+                  <div className={`absolute left-4 sm:left-6 top-2 w-4 h-4 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-background shadow-glow-primary ${idx === researchTimeline.length - 1 ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}`} />
                   
                   {/* Year badge */}
                   <div className="absolute left-0 top-0 -translate-x-2 sm:translate-x-0">
