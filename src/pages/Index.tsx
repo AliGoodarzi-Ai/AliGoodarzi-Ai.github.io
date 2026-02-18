@@ -231,8 +231,6 @@ const Index = () => {
           {/* Three IEEE-quality Visualizations */}
           <div className="space-y-6">
             <TransformerViz />
-            <AgenticAIViz />
-            <SemanticSearchViz />
           </div>
         </motion.div>
       </motion.section>
