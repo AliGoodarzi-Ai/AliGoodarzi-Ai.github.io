@@ -6,6 +6,8 @@ import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
 import TransformerViz from "@/components/TransformerViz";
+import AgenticAIViz from "@/components/AgenticAIViz";
+import SemanticSearchViz from "@/components/SemanticSearchViz";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -219,15 +221,19 @@ const Index = () => {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-2">
-              <span className="text-gradient">Deep Learning</span> Architecture
+              <span className="text-gradient">Deep Learning</span> & AI Systems
             </h3>
             <p className="text-sm text-muted-foreground">
-              IEEE/Academic-quality visualization with forward pass, backpropagation, attention mechanisms & mathematical annotations
+              IEEE/Academic-quality visualizations with mathematical annotations, data flow & architecture details
             </p>
           </div>
           
-          {/* IEEE-quality Deep Neural Network Visualization */}
-          <TransformerViz />
+          {/* Three IEEE-quality Visualizations */}
+          <div className="space-y-6">
+            <TransformerViz />
+            <AgenticAIViz />
+            <SemanticSearchViz />
+          </div>
         </motion.div>
       </motion.section>
 
