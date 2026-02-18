@@ -5,10 +5,6 @@ import { Button } from "@/components/ui/button";
 import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
-import NeuralNetwork3D from "@/components/NeuralNetwork3D";
-import ModernTransformer3D from "@/components/ModernTransformer3D";
-import AgenticAI3D from "@/components/AgenticAI3D";
-import RAGPipeline3D from "@/components/RAGPipeline3D";
 import TransformerViz from "@/components/TransformerViz";
 
 const fadeUp = {
@@ -223,21 +219,15 @@ const Index = () => {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-2">
-              <span className="text-gradient">State-of-the-Art</span> AI Architectures
+              <span className="text-gradient">Deep Learning</span> Architecture
             </h3>
             <p className="text-sm text-muted-foreground">
-              Interactive 3D visualizations of modern AI systems I work with
+              IEEE/Academic-quality visualization with forward pass, backpropagation, attention mechanisms & mathematical annotations
             </p>
           </div>
           
-          {/* Five visualizations stacked vertically */}
-          <div className="space-y-6">
-            <TransformerViz />
-            <NeuralNetwork3D />
-            <ModernTransformer3D />
-            <AgenticAI3D />
-            <RAGPipeline3D />
-          </div>
+          {/* IEEE-quality Deep Neural Network Visualization */}
+          <TransformerViz />
         </motion.div>
       </motion.section>
 
