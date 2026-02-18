@@ -9,6 +9,7 @@ import NeuralNetwork3D from "@/components/NeuralNetwork3D";
 import ModernTransformer3D from "@/components/ModernTransformer3D";
 import AgenticAI3D from "@/components/AgenticAI3D";
 import RAGPipeline3D from "@/components/RAGPipeline3D";
+import TransformerViz from "@/components/TransformerViz";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -229,8 +230,9 @@ const Index = () => {
             </p>
           </div>
           
-          {/* Four visualizations stacked vertically */}
+          {/* Five visualizations stacked vertically */}
           <div className="space-y-6">
+            <TransformerViz />
             <NeuralNetwork3D />
             <ModernTransformer3D />
             <AgenticAI3D />
