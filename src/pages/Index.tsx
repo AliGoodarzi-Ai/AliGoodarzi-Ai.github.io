@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import AIChatSimulator from "@/components/AIChatSimulator";
 import TypewriterText from "@/components/TypewriterText";
 import CircuitBoard from "@/components/CircuitBoard";
+import NeuralNetwork3D from "@/components/NeuralNetwork3D";
 import ModernTransformer3D from "@/components/ModernTransformer3D";
 import AgenticAI3D from "@/components/AgenticAI3D";
 import RAGPipeline3D from "@/components/RAGPipeline3D";
@@ -228,8 +229,9 @@ const Index = () => {
             </p>
           </div>
           
-          {/* Three visualizations stacked vertically */}
+          {/* Four visualizations stacked vertically */}
           <div className="space-y-6">
+            <NeuralNetwork3D />
             <ModernTransformer3D />
             <AgenticAI3D />
             <RAGPipeline3D />
