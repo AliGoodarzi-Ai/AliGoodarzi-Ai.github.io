@@ -197,7 +197,7 @@ const Contact = () => {
               {/* Quick stats */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-6">
                 {[
-                  { label: "PUBLICATIONS", value: "10+" },
+                  { label: "PUBLICATIONS", value: "4+" },
                   { label: "PROJECTS", value: "7" },
                   { label: "EXPERIENCE", value: "5+ YRS" },
                 ].map((stat) => (
