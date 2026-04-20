@@ -59,9 +59,9 @@ const colorMap = {
 
 const stats = [
   { value: "5+", label: "Research Projects", icon: BookOpen },
-  { value: "10+", label: "Publications", icon: Zap },
+  { value: "4+", label: "Publications", icon: Zap },
   { value: "9", label: "AI Systems Built", icon: Code },
-  { value: "50+", label: "Users Tested", icon: Users },
+  { value: "50+", label: "human Tested", icon: Users },
 ];
 
 const Index = () => {
