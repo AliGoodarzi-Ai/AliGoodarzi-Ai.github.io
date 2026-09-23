@@ -1,16 +1,26 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Brain, Sparkles } from "lucide-react";
+import { Menu, X, GraduationCap, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { to: "/", label: "Home", icon: "🏠" },
-  { to: "/research", label: "Research", icon: "🔬" },
-  { to: "/projects", label: "Projects", icon: "💻" },
-  { to: "/publications", label: "Publications", icon: "📚" },
-  { to: "/skills", label: "Skills", icon: "⚡" },
-  { to: "/contact", label: "Contact", icon: "✉️" },
+  { to: "/", label: "Home" },
+  { to: "/skills", label: "Skills" },
+  { to: "/contact", label: "Contact" },
+];
+
+const externals = [
+  {
+    href: "https://scholar.google.com/citations?user=G9GnajEAAAAJ&hl=en",
+    label: "Google Scholar",
+    icon: GraduationCap,
+  },
+  {
+    href: "https://www.researchgate.net/profile/Ali-Goodarzi-7",
+    label: "ResearchGate",
+    icon: BookOpen,
+  },
 ];
 
 const Navbar = () => {
@@ -19,9 +29,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,103 +39,66 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "glass-strong shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <NavLink 
-          to="/" 
-          className="flex items-center gap-2 group"
-        >
-          <div className="relative">
-            <Brain className="w-7 h-7 text-primary group-hover:text-secondary transition-colors duration-300" />
-            <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-accent animate-blink" />
-          </div>
-          <span className="text-lg font-bold tracking-tight text-gradient">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        {/* Name */}
+        <NavLink to="/" className="flex items-center gap-2 group">
+          <span className="text-base font-semibold tracking-tight text-foreground">
             Ali Goodarzi
           </span>
         </NavLink>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               end={l.to === "/"}
               className={({ isActive }) =>
-                `relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 group ${
+                `px-4 py-2 rounded-lg text-base font-semibold transition-colors ${
                   isActive
-                    ? "text-primary bg-primary/10 shadow-glow-primary"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
+                    ? "text-primary bg-primary/10"
+                    : "text-foreground/75 hover:text-foreground hover:bg-muted/50"
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    <span className="text-xs opacity-70">{l.icon}</span>
-                    {l.label}
-                  </span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute inset-0 rounded-xl bg-primary/10 border border-primary/20"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </>
-              )}
+              {l.label}
             </NavLink>
           ))}
-          
-          {/* Theme controls */}
-          <div className="ml-2 flex items-center gap-2">
+
+          <span className="mx-2 h-5 w-px bg-border" />
+
+          {externals.map((e) => (
+            <a
+              key={e.label}
+              href={e.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={e.label}
+              aria-label={e.label}
+              className="p-2 rounded-lg text-foreground/60 hover:text-primary hover:bg-muted/50 transition-colors"
+            >
+              <e.icon className="w-4 h-4" />
+            </a>
+          ))}
+
+          <div className="ml-1">
             <ThemeToggle />
           </div>
         </div>
 
-        {/* AI Status indicator */}
-        <div className="hidden md:flex lg:hidden items-center gap-2 text-xs text-muted-foreground">
-          <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-          <span className="font-mono">AI ONLINE</span>
-        </div>
-
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 rounded-xl text-foreground/70 hover:text-foreground hover:bg-muted/50 transition-colors"
+          className="md:hidden p-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-muted/50 transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <AnimatePresence mode="wait">
-            {open ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X size={22} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Menu size={22} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -138,55 +109,50 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden glass-strong border-t border-border/30 overflow-hidden"
+            transition={{ duration: 0.25 }}
+            className="md:hidden glass-strong border-t border-border/30 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
-              {links.map((l, i) => (
-                <motion.div
+              {links.map((l) => (
+                <NavLink
                   key={l.to}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  to={l.to}
+                  end={l.to === "/"}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? "text-primary bg-primary/10"
+                        : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
+                    }`
+                  }
                 >
-                  <NavLink
-                    to={l.to}
-                    end={l.to === "/"}
-                    onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
-                      `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                        isActive
-                          ? "text-primary bg-primary/10 shadow-glow-primary"
-                          : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
-                      }`
-                    }
-                  >
-                    <span className="text-lg">{l.icon}</span>
-                    <span>{l.label}</span>
-                  </NavLink>
-                </motion.div>
+                  {l.label}
+                </NavLink>
               ))}
-              
-              {/* Mobile AI Status */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="flex items-center justify-between pt-4 border-t border-border/30 mt-4"
-              >
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                  <span className="font-mono">ONLINE</span>
-                </div>
-                <div className="flex items-center gap-2">
+
+              <div className="pt-3 mt-2 border-t border-border/30 flex items-center gap-2">
+                {externals.map((e) => (
+                  <a
+                    key={e.label}
+                    href={e.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-primary hover:bg-muted/50 transition-colors"
+                  >
+                    <e.icon className="w-4 h-4" />
+                    {e.label}
+                  </a>
+                ))}
+                <div className="ml-auto">
                   <ThemeToggle />
                 </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 

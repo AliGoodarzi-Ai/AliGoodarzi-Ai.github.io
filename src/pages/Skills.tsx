@@ -7,7 +7,6 @@ import {
   Award,
   GraduationCap,
 } from "lucide-react";
-import MatrixRain from "@/components/MatrixRain";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,16 +21,16 @@ const stagger = {
 const skillCategories = [
   {
     icon: Brain,
-    title: "Machine Learning & AI",
+    title: "AI & Machine Learning",
     color: "primary" as const,
     skills: [
       "Large Language Models (LLMs)",
-      "BERT, GPT-4, LangChain",
-      "PyTorch, TensorFlow",
-      "Vector Embeddings & Semantic Search",
-      "Prompt Engineering",
-      "Deep Learning (CNNs, DNNs)",
-      "AI Agents & RAG Systems",
+      "Retrieval-Augmented Generation (RAG)",
+      "Fine-tuning & Prompt Engineering",
+      "Semantic Search & Vector Embeddings",
+      "Conversational AI Agents",
+      "PyTorch & Deep Learning",
+      "Machine Learning",
     ],
   },
   {
@@ -39,38 +38,26 @@ const skillCategories = [
     title: "Programming & Development",
     color: "secondary" as const,
     skills: [
-      "Python, R, JavaScript",
-      "React.js, MATLAB, SQL",
-      "VHDL & System Design",
-      "Git, Docker, RESTful APIs",
-      "MLaaS Implementation",
-      "GPU Computing",
+      "Python",
+      "JavaScript & TypeScript",
+      "React & Full-stack Web Apps",
+      "SQL & Data Handling",
+      "Git & Docker",
+      "REST APIs",
     ],
   },
   {
     icon: FlaskConical,
-    title: "Research & Analysis",
+    title: "Research Methods",
     color: "accent" as const,
     skills: [
       "Experimental Design",
-      "Statistical Analysis",
-      "Time-series Forecasting",
-      "Data Mining & Visualization",
-      "Cross-disciplinary Research",
-      "Critical Thinking Frameworks",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Hardware & Embedded Systems",
-    color: "primary" as const,
-    skills: [
-      "STM32 Microcontrollers",
-      "PCB Design (Altium Designer)",
-      "Schematic Capture & Layout",
-      "ESP32, Arduino, IoT",
-      "PLC Programming (Siemens)",
-      "MQTT, LoRaWAN Protocols",
+      "Quantitative Analysis",
+      "Semi-structured Interviews",
+      "Thematic Analysis",
+      "Mixed-Methods Studies",
+      "Studies with Human Participants",
+      "Literature Reviews",
     ],
   },
 ];
@@ -105,9 +92,6 @@ const bgMap = {
 const Skills = () => {
   return (
     <div className="relative min-h-screen">
-      {/* Matrix Rain Background */}
-      <MatrixRain className="z-0" />
-      
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
           <motion.h1
@@ -122,7 +106,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="text-muted-foreground mb-10"
           >
-            Core skills across AI research, software engineering, and hardware systems.
+            Core skills across AI and machine learning research, software development, and empirical research methods.
           </motion.p>
 
           {/* Skills Grid */}

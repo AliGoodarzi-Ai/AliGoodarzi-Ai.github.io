@@ -6,11 +6,8 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
-import Research from "./pages/Research";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
-import Publications from "./pages/Publications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,9 +22,6 @@ const App = () => (
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/research" element={<Research />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/publications" element={<Publications />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/contact" element={<Contact />} />
             </Route>

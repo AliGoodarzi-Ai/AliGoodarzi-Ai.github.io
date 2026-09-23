@@ -1,368 +1,407 @@
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Brain, Cpu, Users, Sparkles, Zap, Code, MessageSquare } from "lucide-react";
+import {
+  ArrowUpRight,
+  GraduationCap,
+  BookOpen,
+  Mail,
+  MessagesSquare,
+  ListChecks,
+  CheckCircle2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import AIChatSimulator from "@/components/AIChatSimulator";
-import TypewriterText from "@/components/TypewriterText";
-import CircuitBoard from "@/components/CircuitBoard";
-import TransformerViz from "@/components/TransformerViz";
-import AgenticAIViz from "@/components/AgenticAIViz";
-import SemanticSearchViz from "@/components/SemanticSearchViz";
+import profileImg from "@/assets/PROFIELR.png";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0 },
 };
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.08 } },
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  show: { opacity: 1, scale: 1 },
-};
+const SCHOLAR = "https://scholar.google.com/citations?user=G9GnajEAAAAJ&hl=en";
+const RESEARCHGATE = "https://www.researchgate.net/profile/Ali-Goodarzi-7";
+const REDDITPERSONA = "https://arxiv.org/abs/2606.06027";
 
-const focuses = [
-  {
-    icon: Brain,
-    title: "AI Agents & LLMs",
-    desc: "Building intelligent agents powered by large language models for complex reasoning and decision-making tasks.",
-    color: "primary" as const,
-  },
-  {
-    icon: Users,
-    title: "Human-AI Interaction",
-    desc: "Designing systems that augment human cognition through structured AI collaboration.",
-    color: "secondary" as const,
-  },
-  {
-    icon: Cpu,
-    title: "Deep Learning",
-    desc: "Neural architectures for computer vision, NLP, signal processing, and multimodal learning.",
-    color: "accent" as const,
-  },
-  {
-    icon: BookOpen,
-    title: "Research Methods",
-    desc: "Experimental design, statistical modeling, and quantitative evaluation of AI systems.",
-    color: "primary" as const,
-  },
+const interests = [
+  "Human-AI Interaction",
+  "Human-Computer Interaction",
+  "Large Language Models",
+  "Conversational Agents",
+  "Metacognition & Learning",
+  "Well-being & Behaviour Change",
+  "Mixed-Methods Research",
 ];
 
-const colorMap = {
-  primary: { bg: "bg-primary/10", text: "text-primary", hover: "group-hover:bg-primary/20" },
-  secondary: { bg: "bg-secondary/10", text: "text-secondary", hover: "group-hover:bg-secondary/20" },
-  accent: { bg: "bg-accent/10", text: "text-accent", hover: "group-hover:bg-accent/20" },
-};
-
-const stats = [
-  { value: "5+", label: "Research Projects", icon: BookOpen },
-  { value: "4+", label: "Publications", icon: Zap },
-  { value: "9", label: "AI Systems Built", icon: Code },
-  { value: "50+", label: "Human Tested", icon: Users },
+const focus = [
+  {
+    title: "User agency & actionable plans",
+    desc: "Building agents that give people personalised, actionable plans while keeping them in control of their own decisions.",
+  },
+  {
+    title: "Metacognition skills",
+    desc: "Studying how AI can help people strengthen their own thinking, reflection, and self-assessment.",
+  },
+  {
+    title: "Argumentation & reasoning",
+    desc: "Designing systems that help people build and evaluate stronger arguments, instead of writing for them.",
+  },
+  {
+    title: "Fine-tuning LLMs with human data",
+    desc: "Adapting language models to real human discourse from sources like Reddit, so they reflect genuine community voices.",
+  },
 ];
 
 const Index = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
       {/* Hero */}
       <motion.section
         variants={stagger}
         initial="hidden"
         animate="show"
-        className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-12"
+        className="min-h-[80vh] flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 py-16"
       >
-        {/* Left: Text content */}
         <div className="flex-1 text-center lg:text-left">
-          {/* Status badge */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 glass px-4 py-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            <span className="text-sm font-mono text-muted-foreground">
-              AVAILABLE FOR RESEARCH COLLABORATION
-            </span>
-          </motion.div>
-
-          {/* Name */}
-          <motion.h1
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
-          >
-            <span className="text-gradient">Ali</span>
-            <br />
-            <span className="text-foreground">Goodarzi</span>
-          </motion.h1>
-
-          {/* Dynamic subtitle */}
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="text-xl sm:text-2xl font-mono text-muted-foreground mb-6 h-8"
-          >
-            <TypewriterText
-              texts={[
-                "PhD Student in Computer Science",
-                "AI Researcher & Engineer",
-                "Human-AI Interaction Specialist",
-                "LLM & Agent Developer",
-              ]}
-              className="text-primary"
-            />
-          </motion.div>
-
-          {/* Bio */}
           <motion.p
             variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="max-w-xl text-foreground/80 leading-relaxed mb-8 text-lg"
+            className="text-base font-semibold tracking-wide text-primary mb-4 uppercase"
           >
-            Applying theoretical frameworks to design{" "}
-            <span className="text-primary font-medium">human-AI interaction systems</span> that enhance
-            cognitive abilities. Specializing in{" "}
-            <span className="text-secondary font-medium">Large Language Models</span>,{" "}
-            <span className="text-accent font-medium">AI agents</span>, and interactive argumentation systems.
+            PhD Researcher in Computer Science · Human-AI Interaction
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="flex flex-wrap gap-4 justify-center lg:justify-start">
-            <Button variant="glow" size="xl" asChild>
-              <Link to="/research">
-                View Research <ArrowRight className="ml-1" />
-              </Link>
-            </Button>
-            <Button variant="glow-outline" size="xl" asChild>
-              <Link to="/projects">Explore Projects</Link>
-            </Button>
-          </motion.div>
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5"
+          >
+            Ali Goodarzi
+          </motion.h1>
 
-          {/* Quick stats */}
+          <motion.p
+            variants={fadeUp}
+            className="max-w-2xl text-xl text-foreground/90 leading-relaxed mb-4"
+          >
+            I'm a doctoral researcher in computer science at the{" "}
+            <a
+              href="https://crowdcomputing.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline underline-offset-4"
+            >
+              Centre for Applied Computing
+            </a>
+            , University of Oulu, working in human-AI interaction and supervised by Prof.
+            Simo Hosio and Dr. Aku Visuri. I design and study conversational AI systems that
+            adapt to what a person can genuinely do, so that support fits their real
+            capabilities, resources, and context.
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="max-w-2xl text-xl text-foreground/90 leading-relaxed mb-8"
+          >
+            My work brings together large language models, human-centred design, and
+            mixed-methods research to build tools that strengthen human reasoning and
+            well-being. I hold a Master's degree in Artificial Intelligence.
+          </motion.p>
+
           <motion.div
             variants={fadeUp}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-6 mt-10 justify-center lg:justify-start"
+            className="flex flex-wrap gap-3 justify-center lg:justify-start"
           >
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold text-gradient">{stat.value}</div>
-                <div className="text-xs text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
+            <Button asChild size="lg">
+              <a href={SCHOLAR} target="_blank" rel="noopener noreferrer">
+                <GraduationCap className="w-4 h-4" /> Google Scholar
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href={RESEARCHGATE} target="_blank" rel="noopener noreferrer">
+                <BookOpen className="w-4 h-4" /> ResearchGate
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="ghost">
+              <Link to="/contact">
+                <Mail className="w-4 h-4" /> Contact
+              </Link>
+            </Button>
           </motion.div>
         </div>
 
-        {/* Right: Interactive elements */}
-        <motion.div
-          variants={scaleIn}
-          transition={{ duration: 0.8 }}
-          className="flex-1 max-w-lg"
-        >
-          {/* Circuit board decoration */}
+        {/* Portrait */}
+        <motion.div variants={fadeUp} className="shrink-0">
           <div className="relative">
-            <div className="absolute -top-20 -right-10 w-40 h-40 opacity-30">
-              <CircuitBoard />
-            </div>
-            <AIChatSimulator />
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 opacity-20">
-              <CircuitBoard />
-            </div>
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 blur-xl opacity-60" />
+            <img
+              src={profileImg}
+              alt="Ali Goodarzi"
+              className="relative w-72 sm:w-80 lg:w-[23rem] aspect-[3/4] rounded-2xl object-cover object-top border border-border shadow-lg"
+            />
           </div>
         </motion.div>
       </motion.section>
 
-      {/* Research Focus */}
+      {/* Research interests */}
       <motion.section
         variants={stagger}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
-        className="py-20"
+        className="py-12"
       >
-        <motion.div variants={fadeUp} className="text-center mb-12">
-          <h2 className="text-3xl sm:text-5xl font-bold mb-4">
-            Research <span className="text-gradient">Focus</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Bridging the gap between artificial intelligence and human cognition through innovative research.
-          </p>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 gap-6">
-          {focuses.map((f, i) => {
-            const colors = colorMap[f.color];
-            return (
-              <motion.div
-                key={f.title}
-                variants={fadeUp}
-                transition={{ duration: 0.5 }}
-                className="tech-card p-6 sm:p-8 hover:shadow-glow-primary transition-all duration-500 group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-xl ${colors.bg} ${colors.text} ${colors.hover} transition-colors`}>
-                    <f.icon size={28} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {f.title}
-                    </h3>
-                    <p className="text-foreground/70 leading-relaxed">{f.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* AI Architecture Visualizations */}
-        <motion.div 
-          variants={fadeUp}
-          className="mt-16"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">
-              <span className="text-gradient">Deep Learning</span> & AI Systems
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              IEEE/Academic-quality visualizations with mathematical annotations, data flow & architecture details
-            </p>
-          </div>
-          
-          {/* Three IEEE-quality Visualizations */}
-          <div className="space-y-6">
-            <TransformerViz />
-          </div>
+        <motion.h2 variants={fadeUp} className="text-sm uppercase tracking-wide text-muted-foreground mb-4">
+          Research interests
+        </motion.h2>
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
+          {interests.map((it) => (
+            <span
+              key={it}
+              className="px-4 py-2 rounded-full text-base bg-muted/60 text-foreground/90 border border-border/60"
+            >
+              {it}
+            </span>
+          ))}
         </motion.div>
       </motion.section>
 
-      {/* Featured Work */}
+      {/* What I work on */}
       <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="py-20"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="py-12"
       >
-        <div className="glass-glow p-8 sm:p-12 relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute top-4 right-4 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-            <span className="text-xs font-mono text-muted-foreground">FEATURED</span>
-          </div>
+        <motion.h2 variants={fadeUp} className="text-2xl sm:text-3xl font-bold mb-8">
+          What I work on
+        </motion.h2>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {focus.map((f) => (
+            <motion.div key={f.title} variants={fadeUp} className="glass p-6 h-full">
+              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+              <p className="text-foreground/80 leading-relaxed text-base">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Brain className="w-6 h-6 text-primary" />
-                <span className="text-sm font-mono text-primary">MASTER'S THESIS</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Mind <span className="text-gradient">Elevator</span>
-              </h2>
-              <p className="text-foreground/80 leading-relaxed mb-6">
-                An AI-powered argumentation system that enhances critical thinking through 
-                Toulmin analysis and GPT-4 integration. Demonstrated significant improvements 
-                in reasoning quality compared to direct LLM usage through rigorous user studies.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {["LLMs", "GPT-4", "Semantic Search", "Education", "React", "Python"].map((tag) => (
+      {/* Selected systems */}
+      <motion.section
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="py-12"
+      >
+        <motion.h2 variants={fadeUp} className="text-2xl sm:text-3xl font-bold mb-2">
+          Selected systems
+        </motion.h2>
+        <motion.p variants={fadeUp} className="text-foreground/60 mb-8 max-w-2xl">
+          Research prototypes I have designed and studied with people.
+        </motion.p>
+
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Mind Elevator */}
+          <motion.div variants={fadeUp} className="glass p-6 sm:p-8 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <MessagesSquare className="w-5 h-5 text-primary" />
+              <h3 className="text-xl font-semibold">Mind Elevator</h3>
+            </div>
+            <p className="text-foreground/75 leading-relaxed mb-6">
+              A conversational system that reads a learner's own argumentative writing and
+              scaffolds each part of the argument, then points them to real human
+              discussions so they do the reasoning themselves, instead of generating the
+              text for them.
+            </p>
+
+            <div className="mt-auto rounded-xl border border-border/60 bg-background/40 p-4">
+              <div className="text-xs text-muted-foreground mb-3">Argument breakdown</div>
+              <ul className="space-y-2 text-sm">
+                {["Claim", "Grounds", "Warrant", "Rebuttal"].map((c) => (
+                  <li key={c} className="flex items-center gap-2 text-foreground/80">
+                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                    <span className="font-medium">{c}</span>
+                    <span className="h-1.5 flex-1 rounded-full bg-muted/70 overflow-hidden">
+                      <span className="block h-full w-2/3 bg-primary/50 rounded-full" />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Argumentation", "Toulmin model", "Semantic search", "LLMs"].map((t) => (
+                <span key={t} className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CapaCoach */}
+          <motion.div variants={fadeUp} className="glass p-6 sm:p-8 flex flex-col">
+            <div className="flex items-center gap-2 mb-3">
+              <ListChecks className="w-5 h-5 text-accent" />
+              <h3 className="text-xl font-semibold">CapaCoach</h3>
+            </div>
+            <p className="text-foreground/75 leading-relaxed mb-6">
+              A conversational agent that builds a visible profile of a person's own
+              context and writes activity plans fitted to what they can actually do,
+              keeping the profile open for the person to see and correct.
+            </p>
+
+            <div className="mt-auto rounded-xl border border-border/60 bg-background/40 p-4">
+              <div className="text-xs text-muted-foreground mb-3">Capability profile to plan</div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {["Resources", "Energy", "Context", "Goals", "Constraints"].map((chip) => (
                   <span
-                    key={tag}
-                    className="px-3 py-1 rounded-lg bg-primary/10 text-primary text-sm font-medium"
+                    key={chip}
+                    className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/20"
                   >
-                    {tag}
+                    {chip}
                   </span>
                 ))}
               </div>
-              <Button variant="glow" asChild>
-                <Link to="/projects">
-                  Learn More <ArrowRight className="ml-1 w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-
-            {/* Visual representation */}
-            <div className="relative">
-              <div className="glass p-6 rounded-2xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <MessageSquare className="w-5 h-5 text-secondary" />
-                  <span className="text-sm font-mono text-muted-foreground">SYSTEM OUTPUT</span>
-                </div>
-                <div className="space-y-3 font-mono text-sm">
-                  <div className="flex items-start gap-2">
-                    <span className="text-primary">→</span>
-                    <span className="text-foreground/80">Analyzing argument structure...</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-secondary">→</span>
-                    <span className="text-foreground/80">Applying Toulmin framework...</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-accent">→</span>
-                    <span className="text-foreground/80">Generating semantic embeddings...</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    <span className="text-primary">Critical thinking enhanced by 40%</span>
-                  </div>
-                </div>
+              <div className="flex items-center gap-2 text-sm text-foreground/80">
+                <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                <span>A plan fitted to this person</span>
               </div>
-              <div className="absolute -z-10 inset-0 blur-3xl bg-gradient-to-r from-primary/20 via-secondary/10 to-accent/20" />
             </div>
-          </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {["Capability Approach", "Personalisation", "Behaviour change", "LLMs"].map((t) => (
+                <span key={t} className="text-xs px-2.5 py-1 rounded-md bg-accent/10 text-accent">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </motion.div>
         </div>
+
+        <motion.p variants={fadeUp} className="text-sm text-foreground/60 mt-6">
+          I also co-authored{" "}
+          <a
+            href={REDDITPERSONA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline underline-offset-4 font-medium"
+          >
+            RedditPersona
+          </a>
+          , a framework for adapting a language model to an online community.
+        </motion.p>
       </motion.section>
 
-      {/* About snippet */}
+      {/* Learning over structure (GNN) */}
       <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="py-20"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        className="py-12"
       >
-        <div className="glass p-8 sm:p-12">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-              <Users className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold">
-                About <span className="text-gradient">Me</span>
-              </h2>
-              <p className="text-sm text-muted-foreground font-mono">BACKGROUND & EXPERTISE</p>
-            </div>
-          </div>
-          <div className="space-y-4 text-foreground/80 leading-relaxed text-lg">
-            <p>
-              I hold a <span className="text-primary font-medium">Master's degree in Computer Science and Engineering</span> from the University of
-              Oulu. My background is in applied artificial intelligence, with experience designing
-              and building intelligent systems for real-world impact.
-            </p>
-            <p>
-              I developed <span className="text-secondary font-medium">Mind Elevator</span>, an
-              interactive argumentation system enhancing critical thinking through structured
-              human-AI collaboration, demonstrating significant improvements in reasoning compared
-              to direct LLM usage.
-            </p>
-            <p>
-              My research combines <span className="text-accent font-medium">user study methodologies</span> with AI system
-              development to create tools that augment rather than replace human cognitive
-              capabilities.
+        <div className="glass p-6 sm:p-10 grid lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">Learning over structure</h2>
+            <p className="text-foreground/75 leading-relaxed">
+              Beyond text, I'm interested in how information moves through structure: graphs
+              of people, arguments, and concepts. Graph neural networks pass messages along
+              edges, so each node reflects its neighbours.
             </p>
           </div>
-          
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button variant="glow-outline" asChild>
-              <Link to="/publications">View Publications</Link>
-            </Button>
-            <Button variant="glow-outline" asChild>
-              <Link to="/skills">See Skills</Link>
-            </Button>
+          <div className="flex justify-center">
+            <GraphFigure />
           </div>
         </div>
       </motion.section>
     </div>
+  );
+};
+
+// A lightweight, dynamic message-passing graph (animated with SVG/SMIL).
+const GraphFigure = () => {
+  const nodes = [
+    { id: 0, x: 45, y: 55 },
+    { id: 1, x: 145, y: 30 },
+    { id: 2, x: 245, y: 60 },
+    { id: 3, x: 95, y: 140 },
+    { id: 4, x: 195, y: 150 },
+    { id: 5, x: 280, y: 130 },
+  ];
+  const edges: [number, number][] = [
+    [0, 1],
+    [1, 2],
+    [0, 3],
+    [1, 3],
+    [3, 4],
+    [2, 5],
+    [4, 5],
+    [2, 4],
+  ];
+  return (
+    <svg viewBox="0 0 320 185" className="w-full max-w-md h-auto">
+      {edges.map(([a, b], i) => {
+        const A = nodes[a];
+        const B = nodes[b];
+        const dur = 2.4 + (i % 3) * 0.8;
+        return (
+          <g key={i}>
+            <line
+              x1={A.x}
+              y1={A.y}
+              x2={B.x}
+              y2={B.y}
+              stroke="hsl(var(--primary))"
+              strokeOpacity="0.28"
+              strokeWidth="1.5"
+            />
+            {/* travelling signal */}
+            <circle r="3" fill="hsl(var(--primary))">
+              <animateMotion
+                dur={`${dur}s`}
+                repeatCount="indefinite"
+                path={`M${A.x},${A.y} L${B.x},${B.y}`}
+              />
+              <animate
+                attributeName="opacity"
+                values="0;1;1;0"
+                dur={`${dur}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          </g>
+        );
+      })}
+      {nodes.map((n) => (
+        <g key={n.id}>
+          <circle
+            cx={n.x}
+            cy={n.y}
+            r="12"
+            fill="hsl(var(--card))"
+            stroke="hsl(var(--primary))"
+            strokeWidth="1.5"
+          />
+          <circle cx={n.x} cy={n.y} r="4" fill="hsl(var(--primary))">
+            <animate
+              attributeName="r"
+              values="3;5.5;3"
+              dur="3s"
+              begin={`${n.id * 0.35}s`}
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              values="0.6;1;0.6"
+              dur="3s"
+              begin={`${n.id * 0.35}s`}
+              repeatCount="indefinite"
+            />
+          </circle>
+        </g>
+      ))}
+    </svg>
   );
 };
 

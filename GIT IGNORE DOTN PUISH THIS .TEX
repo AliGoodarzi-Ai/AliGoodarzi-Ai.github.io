@@ -1,0 +1,145 @@
+%% Mindtrek Doctoral Consortium submission
+%%
+%% Single-column ACM format. The original template file (acmcp.tex sample)
+%% says: "For submission and review of your manuscript please change the
+%% command to \documentclass[manuscript, screen, review]{acmart}."
+%% Mindtrek asks for the single-column format, so that is what is used here.
+%% The "review" option adds line numbers. Remove it if line numbers are
+%% not wanted.
+%%
+%% Compile: pdflatex -> bibtex -> pdflatex -> pdflatex
+%% Bibliography: references.bib (in this folder)
+%%
+\documentclass[manuscript,screen,review]{acmart}
+
+\setcopyright{none}
+\settopmatter{printacmref=false}
+
+\begin{document}
+
+\title{Capability-Adaptive Conversational Agents: Matching Support to What a Person Can Actually Do}
+
+\author{Ali Goodarzi}
+\email{ali.goodarzi@oulu.fi}
+\affiliation{%
+  \institution{Centre for Applied Computing, University of Oulu}
+  \city{Oulu}
+  \country{Finland}
+}
+
+\renewcommand{\shortauthors}{Goodarzi}
+
+\begin{abstract}
+Conversational agents built on large language models are used to personalise support for people, from learning a skill to changing a habit. This research works in two of those areas: feedback on a person's argumentative writing and plans for their physical activity. In both, the output is generated in full from a few stated goals and requests, and what the person is genuinely able to act on, given their capabilities, resources and contextual factors, is not taken into account. My doctoral research, building on the Capability Approach, asks what changes when the output is fitted to exactly that, first in argumentation and then in physical activity. We have built and studied two systems so far. Mind Elevator analyses a student's own argumentative essay component by component and shows how each can be strengthened. Instead of generating a text to copy and use, it then links the student to semantically similar discussions on Reddit, a source of human-generated discussion in which the same questions are argued from several sides. The student then meets those perspectives and does the reasoning themselves. Students who used it wrote structurally more complex and more persuasive arguments afterwards, and assessed their own argumentation ability higher. CapaCoach builds a profile of a person's own contextual factors in conversation and writes an activity plan from it. Adults rated every plan as fitting and applicable, and when they could compare, preferred the one written from the fullest profile. A week-long study in which people keep and extend their profile, built on these findings, comes next.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121.10011748</concept_id>
+<concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Empirical studies in HCI}
+
+\keywords{Capability Approach, conversational agents, large language models, argumentation, physical activity planning, personalisation}
+
+\maketitle
+
+\section{Current Status of the Work}
+
+I am a first-year doctoral researcher at the Centre for Applied Computing, University of Oulu, supervised by Professor Simo Hosio and Dr Aku Visuri and funded by Infotech Oulu. The dissertation is article-based: three studies, three domains, one paper each. Two have been completed and submitted (Table~\ref{tab:studies}).
+
+The two completed studies test the same idea, fitting the output to the person, in one domain each. Mind Elevator analysed the argumentative essays of university students component by component. Instead of generating a text they could copy and use, it then linked them to semantically similar human-generated discussions on Reddit, so that after the analysis they met several perspectives and gathered the reasoning themselves. In a pre-post experiment, their essays became structurally more complex and more persuasive, and they assessed their own ability to write persuasive arguments higher. The paper is under revision at Computers in Human Behavior Reports. CapaCoach held a conversation with adults about their own contextual factors, recorded them as a capability profile, and wrote a one-day activity plan from it. Participants rated every plan as fitting and applicable, and when they saw all three plans written from their own conversation, they preferred the one written from the fullest profile. The paper is submitted to CHI 2027. A third study, which builds on both, is being designed.
+
+Outside the dissertation, I co-authored RedditPersona~\cite{ghaffari2026redditpersona}, a framework for adapting a language model to an online community. It makes three choices explicit and comparable across studies, which users to group together, on what data, and how to evaluate the result. Across five ways of grouping users, two qualities pulled against each other. Grouping by subreddit gave output that was easiest to recognise as that community's, and grouping by what users write about gave output most like what members actually post. A study gains one of the two at the expense of the other.
+
+\begin{table}[t]
+\caption{The two completed studies.}
+\label{tab:studies}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}p{0.12\linewidth}p{0.41\linewidth}p{0.41\linewidth}@{}}
+\toprule
+ & \textbf{Study 1: Mind Elevator} (argumentative writing) & \textbf{Study 2: CapaCoach} (physical activity planning) \\
+\midrule
+System & Toulmin analysis of the learner's own essay with feedback on each of the six components, then five semantically similar Reddit discussions & Eight-layer conversation that builds a visible twelve-construct capability profile, and a one-day plan written from it \\
+\addlinespace
+Sample and design & 16 university students, one hour in person. Single group, essay written before and after, assessed on four levels of structural complexity & 181 adults, about 25 minutes online. Three conditions (Baseline, Partial, Full) by how much of the profile reached the plan. Own plan rated, then all three ranked blind \\
+\addlinespace
+Headline numbers & Essays that raise and answer a counterargument: 1 of 16 before, 11 of 16 after. None lost complexity. Self-assessed persuasive-writing ability rose for all 16 & Fit ratings did not differ across conditions. Full plan ranked first by 109 of 181, including 69 of the 120 given another plan \\
+\addlinespace
+Status & Under revision, CHB Reports & Submitted to CHI 2027 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Motivation}
+
+This dissertation asks whether language models can be turned toward helping people acquire a skill and act on what they can genuinely do, given their capabilities and their own personal and contextual factors. Both are long-term outcomes. Argumentation skill develops through sustained practice, and in Crowell and Kuhn's three-year curriculum of dialogic argumentation students were still gaining in the third year~\cite{crowell2014developing}. Behaviour change, as Klasnja et al.~\cite{klasnja2011evaluate} note for health technologies, appears over a longer span than a study of a new system usually covers. The studies here are short, one session each so far and a longer one in the next. They establish that the mechanism works as intended and that people find the output something they can act on, and they leave whether the change holds to longer controlled studies. Two habits of current systems stand in the way of such output.
+
+The first is that the system produces the work in the person's place. Argumentation systems built on generative models draft text and counterarguments on the learner's behalf~\cite{zhang2023visar,su2023collaborating}, and systems that provide direct answers have been found to reduce self-monitoring and reflection~\cite{oecd2026outlook}. The second habit is that personalisation is built from stated goals and availability alone. Conversational planners for physical activity gather goals, availability and anticipated obstacles and write a plan from them~\cite{shin2025planfitting,jorke2025gptcoach}. Their users asked to be asked more about their lives~\cite{shin2025planfitting,xu2025goals}, and one such system was found to draw little on the qualitative side of a person's context, such as time constraints, physical abilities and access to resources~\cite{jorke2025gptcoach}.
+
+This research fits the output to what the individual can genuinely do, given their capabilities, their resources and their contextual factors. In argumentative writing that means analysing the person's own text and teaching them how each component of an argument works, beside how other people have argued the same question, instead of writing for them. Mind Elevator is the answer to the first habit. In physical activity it means writing the plan from a record of the person's own contextual factors that they can see and correct. CapaCoach is the answer to the second.
+
+Physical activity is the harder test. Nearly half of the people who intend to be more active do not follow through~\cite{rhodes2013big}. The gap to close there lies between intending and acting, and that is where a plan fitted to what a person can genuinely do should make its difference. The second study asks whether a plan written from a person's own contextual factors is one the person can act on, and the third asks whether they do.
+
+\section{Problem Statement and Research Questions}
+
+\paragraph{Problem statement} LLM-based systems that aim to generate personalised output either produce it in the person's place, as a draft or a plan, or match it to what the person states about their goals and preferences. Neither aims to establish what the person can genuinely do. A suggestion to exercise outdoors assumes safe access to somewhere to do it. A draft written for a learner assumes the problem was the text and not the skill. Output that does not fit goes unused. The Capability Approach names what is missing: a person's real options depend on their capabilities, their resources, and the personal, social and environmental conditions that decide whether a resource becomes something they can do~\cite{sen1999development,robeyns2005capability}. This research personalises the output to those, through a record of them that the person can see and correct.
+
+\paragraph{Research questions} The research plan sets one main question and three sub-questions, one per domain.
+
+\begin{description}
+\setlength{\itemsep}{0pt}
+\item[Main RQ] How can capability-adaptive conversational agents be designed and evaluated to enhance domain-specific human capabilities?
+\item[RQ1 (Cognitive)] How does feedback from a capability-adaptive system affect users' meta-cognitive capabilities? Mind Elevator addresses this question.
+\item[RQ2 (Behavioural)] How does a capability-adaptive conversational agent compare with generic alternatives in affecting physical activity capability? CapaCoach and the next study address this question.
+\item[RQ3 (Affective)] How do capability-adaptive, preference-based and generic conversational agents compare in their effects on well-being outcomes?
+\end{description}
+
+Two of the intended contributions are a way of applying the Capability Approach to conversational agent design and a reusable architecture for building a capability profile and writing output from it. The third is evidence on whether capability-adaptive personalisation produces better outcomes than personalisation to stated preferences.
+
+\section{Key Concepts}
+
+The research uses a small set of terms from the Capability Approach~\cite{sen1999development,robeyns2005capability} and a few of its own. \textit{Functionings} are what a person actually does and is. \textit{Capabilities} are the options a person could choose among, whether or not they take them. \textit{Resources} are the means a person holds, such as time, equipment or a park nearby. \textit{Conversion factors} decide whether a resource becomes a real option. Robeyns groups them as personal, such as health and energy, social, such as work load and family duties, and environmental, such as weather and access to facilities~\cite{robeyns2005capability}.
+
+A \textit{capability profile} is this research's record of what the system gathers about a person, held in the person's own words under these headings. It is visible to the person while the conversation runs and open to their correction and revisiting, so that everything in it can be turned into output specific to that person. The design asks progressively more of the person, layer by layer, and keeps what it has gathered where the person can see and revise it. This follows what planning research has found about eliciting more of a person's situation and keeping a visible record of it~\cite{shin2025planfitting,xu2025goals,xu2022understanding,xu2024understanding}. The next study makes the profile persist, so that asking and revising continue across days. \textit{Capability-adaptive personalisation} is output written from that record, so the same request produces different output for different people. Two further terms came with CapaCoach. The \textit{capability threshold} is the least a person can reliably manage on a hard day, after Nussbaum's position that central capabilities should be protected up to a threshold~\cite{nussbaum2011creating}. The \textit{dignity boundary} is what a plan should never suggest to this person, after Capability-Sensitive Design, which treats a design that leaves users below that threshold as a question of justice~\cite{jacobs2020capability}.
+
+\section{Theoretical Frameworks}
+
+\textbf{The Capability Approach} is the theoretical basis of the dissertation~\cite{sen1999development,robeyns2005capability,robeyns2017wellbeing}. It supplies no fixed list of what matters, since Robeyns holds that each application must select the capabilities that fit its purpose~\cite{robeyns2017wellbeing}, so in this research the selection is a design step.
+
+\textbf{Toulmin's model of argumentation}~\cite{toulmin2003uses} structures the argumentation study. An argument has a claim, grounds that support it, a warrant that connects them, backing for the warrant, a qualifier that says how far the claim holds, and a rebuttal that says where it does not. Two findings give the results their meaning. Kuhn identified rebuttals as the most demanding skill of argument~\cite{kuhn1991skills}. Wolfe et al.~\cite{wolfe2009argumentation} showed that essays which raise and answer counterarguments are rated higher in quality than essays that argue only their own side.
+
+\textbf{Planning research in health psychology} shapes what a plan contains. Action planning fixes when, where and how to act, and coping planning prepares for what could get in the way~\cite{gollwitzer1999implementation,sniehotta2005bridging}. The factors people weigh when planning activity act together and pull in different directions for different people~\cite{paruthi2018finding}, which is why CapaCoach asks about obstacles, a fallback and a boundary, and looks for where the factors on a profile converge.
+
+\section{Research Approach and Methods}
+
+The research follows a design science approach~\cite{hevner2004design}: build a system, study it with people, and let what is learned change both the system and the framework before the next study. Both studies followed the university's ethical procedures, with informed consent and anonymised data.
+
+\paragraph{Mind Elevator} The analysis finds each of the six Toulmin components in the learner's own essay and says whether it is present, how well it works and what would strengthen it. The prompts forbid the model from supplying facts or evidence, so the analysis teaches how each component is used and leaves the writing to the learner. Instead of a generated text to copy, the system then links the learner to five semantically similar discussions written by people on Reddit. Discussions written by people carry perspectives, clarifying questions and personal experience that generated text lacks~\cite{thukral2023generating,liu2024generative}, and semantically relevant examples have been found to improve the persuasiveness of the arguments people write~\cite{xia2022persua}. Sixteen university students each chose a topic they knew well, wrote an argumentative essay unaided, spent about thirty minutes with the system, and rewrote the essay unaided. Two coders assessed each essay with Chuang and Yan's scheme of structural complexity, which grades an essay by the components present~\cite{chuang2022investigation}. Before and after, the students assessed their own ability to write a persuasive argument and to use each component.
+
+\paragraph{CapaCoach} The system takes from the Capability Approach the answer to what a planning conversation should gather, as twelve constructs. They cover what the person does and could do, why it matters to them and how it feels, and their personal, social and environmental factors. They also cover resources, agency and goals, the least the person can manage on a hard day, and what a plan must never suggest. The conversation moves in eight layers from the person's week to one chosen day, and the profile it builds appears beside the chat, in the person's words, for them to correct. Four chained model calls record what the person says under the constructs, ask what is still uncovered, find where the profile's factors converge and conflict, and write the plan from it. All 181 participants had the same conversation. What varied was how much of their profile reached the plan. Baseline used the chosen activity, the day and the weather. Partial added what they do and can do, their goals, resources, expected energy and obstacles. Full added everything else the profile held. Each participant rated the plan of their own condition for fit~\cite{weiner2017psychometric} and wrote how it fitted and what it had missed. They then ranked all three plans written from their conversation, shown unlabelled in random order, and gave a reason that two authors coded~\cite{hsieh2005three}. Following Klasnja et al.~\cite{klasnja2011evaluate}, the study asked whether the mechanism works as intended and how people experience it.
+
+\section{Results to Date}
+
+\paragraph{Mind Elevator} Working from the learner's own essay changed what the learners produced. Assessed with Chuang and Yan's scheme, their essays became structurally more complex. Before the session, the essays consisted largely of claims without supporting evidence, and only one answered a counterargument. After it, every essay supported its claims with evidence and reasoning, eleven of the sixteen also raised and answered a counterargument, and no essay lost complexity. That is the form readers rate as higher in quality~\cite{wolfe2009argumentation}, so by the standard the literature uses the essays became more persuasive. All of the students assessed their own ability to write a persuasive argument higher afterwards, and the largest rise among the components was for rebuttals, the one Kuhn identifies as the most demanding~\cite{kuhn1991skills}. One session, sixteen people and no control group make this a proof of concept, and retention and transfer remain open.
+
+\paragraph{CapaCoach} The profile made a difference that a rating could not show and a comparison could. Whichever version they received, participants rated the plan as fitting and applicable, described it as feasible and suited to their schedule, and the commonest answer to what it had missed was nothing, so the ratings did not separate the conditions. Shown all three plans written from their own conversation, the same participants preferred the plan written from the fullest profile, and so did those who had received a different plan. Plans were chosen for naming something the person had said: a trail near the house, the equipment set up in the living room, a knee that does not bend far. In the terms of the Capability Approach those are an environmental factor, a resource and a personal factor, three of the conversion factors the framework had led the conversation to gather. No one marked a plan down for speaking to their situation, and complaints came only where the system had a factor wrong. Within that agreement, people divided on how much a plan should say. Those who wanted more detail chose the fullest plan almost without exception, those who wanted less never did, and a separate group chose on simplicity, tied to whether they could keep the plan up. How much a plan says is not among the twelve constructs, and some participants also named factors the conversation had not asked about, such as their training experience or their mental state. Both point the same way: the framework leaves open which capabilities matter, so what the profile gathers has to be able to grow with the person.
+
+\section{Ongoing and Upcoming Work}
+
+The Mind Elevator paper is being revised in response to reviews, and the CapaCoach paper is submitted to CHI 2027.
+
+The next study takes CapaCoach from one conversation to about a week, and its design follows from the second study read through the Capability Approach. Three directions came out of that reading, and they are the ones on which I would most value the consortium's feedback. First, the profile should outlast the conversation and stay open to correction and addition, because conversion factors change from day to day and the profile is the record of what the person can do. Second, how much a plan should say is a personal factor the twelve constructs did not cover, so the conversation should ask for it and keep the answer. Third, the difference between plans appeared only when a person could set them side by side, so evaluation should compare as well as rate. In the study, each day's plan is written from the persisting profile as it stands, so the system and the person make the plans together from a record both can see. The aim is a plan the person can act on that day, and the study records whether they do. A comparison group plans without the system over the same period. The measures cover whether each plan was carried out, how fitting the person found it, and self-reported activity and engagement.
+
+After that, the research plan names emotional well-being as the third domain. The same profile-building conversation would be applied to well-being techniques and compared against preference-based and generic conditions in a longer deployment, and the findings across the three domains brought together into design guidelines.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{main}
+
+\end{document}
