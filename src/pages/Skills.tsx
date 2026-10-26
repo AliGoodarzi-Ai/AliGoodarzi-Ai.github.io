@@ -1,182 +1,86 @@
-import { motion } from "framer-motion";
-import {
-  Brain,
-  Code,
-  FlaskConical,
-  Zap,
-  Award,
-  GraduationCap,
-} from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
-
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const skillCategories = [
+const groups = [
   {
-    icon: Brain,
-    title: "AI & Machine Learning",
-    color: "primary" as const,
-    skills: [
-      "Large Language Models (LLMs)",
-      "Retrieval-Augmented Generation (RAG)",
-      "Fine-tuning & Prompt Engineering",
-      "Semantic Search & Vector Embeddings",
-      "Conversational AI Agents",
-      "PyTorch & Deep Learning",
-      "Machine Learning",
+    title: "AI and machine learning",
+    items: [
+      "Large language models",
+      "Retrieval-augmented generation",
+      "Fine-tuning and prompt engineering",
+      "Prompt chaining",
+      "Semantic search and vector embeddings",
+      "Conversational agents",
+      "PyTorch and deep learning",
     ],
   },
   {
-    icon: Code,
-    title: "Programming & Development",
-    color: "secondary" as const,
-    skills: [
+    title: "Programming and development",
+    items: [
       "Python",
-      "JavaScript & TypeScript",
-      "React & Full-stack Web Apps",
-      "SQL & Data Handling",
-      "Git & Docker",
+      "JavaScript and TypeScript",
+      "React and full-stack web applications",
+      "SQL",
+      "Git and Docker",
       "REST APIs",
     ],
   },
   {
-    icon: FlaskConical,
-    title: "Research Methods",
-    color: "accent" as const,
-    skills: [
-      "Experimental Design",
-      "Quantitative Analysis",
-      "Semi-structured Interviews",
-      "Thematic Analysis",
-      "Mixed-Methods Studies",
-      "Studies with Human Participants",
-      "Literature Reviews",
+    title: "Research methods",
+    items: [
+      "Experimental design",
+      "Quantitative analysis",
+      "Semi-structured interviews",
+      "Thematic analysis",
+      "Mixed-methods studies",
+      "Studies with human participants",
+      "Literature reviews",
     ],
   },
 ];
 
 const certifications = [
   { issuer: "Stanford University (ICME)", name: "Mathematical Thinking" },
-  { issuer: "Stanford Online", name: "Unsupervised Learning, Recommenders, RL" },
+  { issuer: "Stanford Online", name: "Unsupervised Learning, Recommenders, Reinforcement Learning" },
+  { issuer: "Stanford Online", name: "Supervised Machine Learning: Regression and Classification" },
+  { issuer: "Google", name: "Introduction to Large Language Models" },
   { issuer: "DataCamp", name: "Deep Learning for Text with PyTorch" },
-  { issuer: "Stanford Online", name: "Supervised ML: Regression & Classification" },
   { issuer: "DataCamp", name: "Deep Reinforcement Learning" },
-  { issuer: "DataCamp", name: "Hierarchical & Recursive Queries in SQL Server" },
+  { issuer: "DataCamp", name: "Reinforcement Learning with Gymnasium in Python" },
+  { issuer: "DataCamp", name: "Building Recommendation Engines with PySpark" },
   { issuer: "DataCamp", name: "Intermediate Docker" },
-  { issuer: "DataCamp", name: "RL with Gymnasium in Python" },
+  { issuer: "DataCamp", name: "Hierarchical and Recursive Queries in SQL Server" },
   { issuer: "Udemy", name: "100 Days of Code: Python Pro Bootcamp" },
   { issuer: "Coursera", name: "AI For Everyone" },
-  { issuer: "DataCamp", name: "Building Recommendation Engines with PySpark" },
-  { issuer: "Google", name: "Introduction to Large Language Models" },
 ];
 
-const shadowMap = {
-  primary: "hover:shadow-glow-primary",
-  secondary: "hover:shadow-glow-secondary",
-  accent: "hover:shadow-glow-accent",
-};
+const Skills = () => (
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <h1 className="text-4xl font-bold mb-3">Skills</h1>
+    <p className="text-lg text-foreground/80 mb-10">
+      AI and machine learning, software development, and empirical research methods.
+    </p>
 
-const bgMap = {
-  primary: "bg-primary/10 text-primary",
-  secondary: "bg-secondary/10 text-secondary",
-  accent: "bg-accent/10 text-accent",
-};
-
-const Skills = () => {
-  return (
-    <div className="relative min-h-screen">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="py-8">
-          <motion.h1
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl font-bold mb-2"
-          >
-            Technical <span className="text-gradient">Expertise</span>
-          </motion.h1>
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-muted-foreground mb-10"
-          >
-            Core skills across AI and machine learning research, software development, and empirical research methods.
-          </motion.p>
-
-          {/* Skills Grid */}
-          <div className="grid sm:grid-cols-2 gap-6 mb-20">
-            {skillCategories.map((cat) => (
-              <motion.div
-                key={cat.title}
-                variants={fadeUp}
-                transition={{ duration: 0.4 }}
-                className={`glass p-6 transition-all duration-500 ${shadowMap[cat.color]} backdrop-blur-xl`}
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className={`p-2.5 rounded-lg ${bgMap[cat.color]}`}>
-                    <cat.icon size={22} />
-                  </div>
-                  <h2 className="text-lg font-semibold">{cat.title}</h2>
-                </div>
-                <ul className="space-y-2.5">
-                  {cat.skills.map((s) => (
-                    <li
-                      key={s}
-                      className="flex items-center gap-3 text-sm text-foreground/80"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+    <div className="divide-y divide-border border-y border-border mb-14">
+      {groups.map((g) => (
+        <section key={g.title} className="py-6 grid md:grid-cols-[16rem_1fr] gap-2 md:gap-8">
+          <h2 className="text-xl">{g.title}</h2>
+          <ul className="text-foreground/85 grid sm:grid-cols-2 gap-x-8 gap-y-1">
+            {g.items.map((s) => (
+              <li key={s}>{s}</li>
             ))}
-          </div>
-
-          {/* Certifications */}
-          <motion.h2
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl font-bold mb-2"
-          >
-            <span className="text-gradient">Certifications</span>
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8"
-          />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((c, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                transition={{ duration: 0.3 }}
-                className="glass p-4 hover:shadow-glow-primary transition-all duration-300 group backdrop-blur-xl"
-              >
-                <div className="flex items-start gap-3">
-                  <Award size={18} className="text-primary mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-medium text-foreground/90 group-hover:text-primary transition-colors">
-                      {c.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground font-mono mt-1">{c.issuer}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+          </ul>
+        </section>
+      ))}
     </div>
-  );
-};
+
+    <h2 className="text-2xl mb-4">Certifications</h2>
+    <ul className="divide-y divide-border border-y border-border">
+      {certifications.map((c) => (
+        <li key={c.name} className="py-3 flex flex-col sm:flex-row sm:justify-between gap-1">
+          <span className="text-foreground/90">{c.name}</span>
+          <span className="text-sm text-muted-foreground">{c.issuer}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default Skills;
