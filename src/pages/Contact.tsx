@@ -1,4 +1,4 @@
-import profileImg from "@/assets/profile.jpeg";
+import profileImg from "@/assets/avatar.jpg";
 
 const EMAIL = "ali.goodarzi@oulu.fi";
 

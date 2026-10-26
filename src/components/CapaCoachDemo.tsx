@@ -169,10 +169,10 @@ const CapaCoachDemo = () => {
 
           {step === SYNTHESIS && (
             <div className="flex-1">
-              <p className="font-serif text-lg font-semibold mb-3">Where the profile converges and conflicts</p>
+              <p className="text-lg font-semibold mb-3">Where the profile converges and conflicts</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm font-semibold text-secondary mb-1">Converges</p>
+                  <p className="text-sm font-semibold text-accent mb-1">Converges</p>
                   <ul className="list-disc pl-5 space-y-1 text-foreground/85">
                     <li>Trail near the house, walking, and a free midday point to a lunchtime walk.</li>
                     <li>The trainer and the homework hour fit the hard-day minimum.</li>
@@ -207,7 +207,7 @@ const CapaCoachDemo = () => {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mb-3">{plans[plan].uses}</p>
-              <p className="font-serif text-lg font-semibold mb-2">Thursday</p>
+              <p className="text-lg font-semibold mb-2">Thursday</p>
               <ol className="relative border-l-2 border-accent/40 ml-2 space-y-4">
                 {plans[plan].slots.map((s) => (
                   <li key={s.text} className="pl-4 relative">
@@ -242,7 +242,7 @@ const CapaCoachDemo = () => {
 
         {/* Profile sidebar */}
         <aside aria-label="Capability profile" className="p-4 sm:p-5 border-t lg:border-t-0 lg:border-l border-border bg-muted/30">
-          <p className="font-serif font-semibold">Capability profile</p>
+          <p className="font-semibold">Capability profile</p>
           <p className="text-xs text-muted-foreground mb-3">Visible to the person and open to correction.</p>
           <ul className="space-y-2">
             {headings.map((h) => {

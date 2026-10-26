@@ -95,7 +95,7 @@ const MindElevatorDemo = () => {
   return (
     <div className="rounded-lg border border-border overflow-hidden">
       <div className="flex flex-wrap items-end justify-between gap-2 px-4 pt-3 border-b border-border bg-muted/40">
-        <p className="font-serif font-semibold pb-2">Mind Elevator</p>
+        <p className="font-semibold pb-2">Mind Elevator</p>
         <div className="flex flex-wrap" role="tablist" aria-label="Walkthrough steps">
           {tabs.map((t, i) => (
             <button

@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-background/95 border-b border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <NavLink to="/" className="font-serif text-lg font-semibold text-foreground">
+        <NavLink to="/" className="text-lg font-semibold text-foreground">
           Ali Goodarzi
         </NavLink>
 

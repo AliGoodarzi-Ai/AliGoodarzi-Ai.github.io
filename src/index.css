@@ -5,48 +5,48 @@
 @layer base {
   :root,
   .dark {
-    --background: 222 22% 11%;
-    --foreground: 40 15% 94%;
-    --card: 222 18% 14%;
-    --card-foreground: 40 15% 94%;
-    --popover: 222 18% 14%;
-    --popover-foreground: 40 15% 94%;
-    --primary: 205 65% 68%;
-    --primary-foreground: 222 25% 10%;
-    --secondary: 160 35% 55%;
-    --secondary-foreground: 222 25% 10%;
-    --muted: 222 14% 19%;
-    --muted-foreground: 220 10% 70%;
-    --accent: 28 70% 64%;
-    --accent-foreground: 222 25% 10%;
-    --destructive: 0 65% 55%;
+    --background: 240 3% 7%;
+    --foreground: 0 0% 96%;
+    --card: 240 3% 11%;
+    --card-foreground: 0 0% 96%;
+    --popover: 240 3% 11%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 211 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3% 18%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 240 3% 15%;
+    --muted-foreground: 240 3% 66%;
+    --accent: 150 50% 48%;
+    --accent-foreground: 240 10% 6%;
+    --destructive: 0 80% 62%;
     --destructive-foreground: 0 0% 100%;
-    --border: 222 12% 24%;
-    --input: 222 12% 24%;
-    --ring: 205 65% 68%;
-    --radius: 0.5rem;
+    --border: 240 3% 21%;
+    --input: 240 3% 21%;
+    --ring: 211 100% 60%;
+    --radius: 0.75rem;
   }
 
   .light {
-    --background: 40 20% 98%;
-    --foreground: 222 25% 14%;
+    --background: 240 20% 99%;
+    --foreground: 240 3% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 222 25% 14%;
+    --card-foreground: 240 3% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 25% 14%;
-    --primary: 212 60% 36%;
+    --popover-foreground: 240 3% 12%;
+    --primary: 211 100% 44%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 160 40% 30%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 40 12% 93%;
-    --muted-foreground: 222 10% 38%;
-    --accent: 24 70% 40%;
+    --secondary: 240 6% 94%;
+    --secondary-foreground: 240 3% 12%;
+    --muted: 240 6% 95%;
+    --muted-foreground: 240 2% 44%;
+    --accent: 152 62% 30%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 65% 45%;
+    --destructive: 0 72% 46%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 10% 84%;
-    --input: 40 10% 84%;
-    --ring: 212 60% 36%;
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 211 100% 44%;
   }
 }
 
@@ -60,13 +60,13 @@
   body {
     @apply bg-background text-foreground antialiased font-sans;
     font-size: 1.0625rem;
+    letter-spacing: -0.011em;
   }
   h1,
   h2,
   h3 {
-    @apply font-serif;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.022em;
   }
   p,
   li {

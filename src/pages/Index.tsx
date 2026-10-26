@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import profileImg from "@/assets/PROFIELR.png";
+import profileImg from "@/assets/portrait.jpg";
 import MindElevatorDemo from "@/components/MindElevatorDemo";
 import CapaCoachDemo from "@/components/CapaCoachDemo";
 import GraphFigure from "@/components/GraphFigure";

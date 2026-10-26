@@ -105,7 +105,7 @@ const GraphFigure = () => {
       </svg>
 
       <figcaption className="mt-3 text-sm text-foreground/80 space-y-2">
-        <p className="font-serif text-base text-center">
+        <p className="text-base text-center">
           h<sub>v</sub><sup>(k+1)</sup> = Σ<sub>u ∈ N(v) ∪ {"{v}"}</sub>{" "}
           h<sub>u</sub><sup>(k)</sup> / √((d<sub>u</sub>+1)(d<sub>v</sub>+1))
         </p>
